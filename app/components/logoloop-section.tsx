@@ -50,10 +50,10 @@ export default function LogoLoopSection() {
         setLogoHeight(50);  setGap(35);  setSpeed(35); 
 
       } else if (width >= 1024) { // lg
-        setLogoHeight(60);  setGap(80);  setSpeed(80);
+        setLogoHeight(50);  setGap(70);  setSpeed(50);
 
       } else {                 // md
-        setLogoHeight(60);  setGap(67);  setSpeed(60);
+        setLogoHeight(40);  setGap(67);  setSpeed(60);
       }
     };
 

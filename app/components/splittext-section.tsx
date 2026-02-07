@@ -9,12 +9,10 @@ import SplitText from './splittext-bit';
 
 export default function SplitTextSection() {
 
-    const [tailwind , setTailwind] = useState("font-unbounded text-center text-[3rem]  md:text-[5rem] lg:text-[6rem]    opacity-95")
+    const [tailwind , setTailwind] = useState("text-center text-[2.5rem]  md:text-[4.7rem] lg:text-[5.5rem] font-unbounded   opacity-90")
 
     return (   
         <SplitText
-            text={'Welcome <span class="text-[#D9414E] italic">here</span>'}
-            allowHtml
             className={tailwind}
             delay={90}
             duration={1.25}
@@ -26,7 +24,9 @@ export default function SplitTextSection() {
             rootMargin="-100px"
             textAlign="center"
             onLetterAnimationComplete={() => null}
-        />
+        >
+            Welcome <span className="font-ibm italic text-slate">here</span>
+        </SplitText>
 
     )
 

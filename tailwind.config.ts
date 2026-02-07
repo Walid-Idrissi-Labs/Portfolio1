@@ -1,30 +1,31 @@
-module.exports = {
-    darkMode : 'class',
-    content : [
-        './app/**/*.{js,ts,jsx,tsx}',
-        './components/**/*.{js,ts,jsx,tsx}',
+import type { Config } from "tailwindcss";
+
+export default {
+    darkMode: "class",
+    content: [
+        "./app/**/*.{js,ts,jsx,tsx,mdx}",
+        "./components/**/*.{js,ts,jsx,tsx,mdx}",
     ],
-    theme : {
-        extend : {
-            colors : {
-                primary : '#d9d9d9',
+    theme: {
+        extend: {
+            colors: {
+                primary: "#d9d9d9",
                 // brick : "#A66066",
-                red : "#D9414E",
-                
+                red: "#D9414E",
+
                 // beige : "#AEA399",
-                slate : "#74818C",
-                "beige-bright" : "#F2E6D8",
-                "beige-dark" : "#D9CEC5",
+                slate: "#74818C",
+                "beige-bright": "#F2E6D8",
+                "beige-dark": "#D9CEC5",
             },
-            fontFamily : {
+            fontFamily: {
                 // 'primary' : ['DM Sans', 'sans-serif'],
-                'mono' : ['IBM Plex Mono', 'monospace'],
-                "primary" : ['Unbounded', 'sans-serif'],
-                "unbounded" : ['var(--font-unbounded)']
+                ibm: ["var(--font-ibm)", "monospace"],
+                unbounded: ["var(--font-unbounded)", "sans-serif"],
             },
-            backgroundImage : {
-                'silver-text-gradient': 'linear-gradient(to right, #D9D9D9, #8C8C8C)',
-            },
+            backgroundImage: {
+                "silver-text-gradient": "linear-gradient(to right, #D9D9D9, #8C8C8C)",
             },
         },
-    }
+    },
+} satisfies Config;

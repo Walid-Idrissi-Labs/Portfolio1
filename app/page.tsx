@@ -1,17 +1,17 @@
 import Image from "next/image";
-import { DM_Sans, IBM_Plex_Mono , Unbounded} from "next/font/google";
+
 import AnimatedList from "./components/AnimatedList-bit";
 import Aurora from "./components/aurora-bit";
 import LightRaysSection from "./components/lightrays-section";
 import LogoLoopSection from "./components/logoloop-section";
 import SplitTextSection from "./components/splittext-section";
 import { image } from "motion/react-client";
+import { unboundedFont , ibmFont} from "./fonts";
 
 const items = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5', 'Item 6', 'Item 7', 'Item 8', 'Item 9', 'Item 10']; 
 
-const priFont = DM_Sans({ subsets: ['latin'], weight: ['400', '500', '700']  , style : ['normal' , 'italic']})
-const secFont = IBM_Plex_Mono({ subsets: ['latin'], weight: ['500'] })
-const unboundedFont = Unbounded({ subsets: ['latin'], weight: ['400', '500', '700']  , style : ['normal' ] , variable : "--font-unbounded" })
+
+
 
 
 
@@ -33,16 +33,17 @@ export default function Home() {
 
 
       </div> 
-         <div className="   font-primary  relative z-10 flex items-center justify-center h-full w-[90vh]  ">
+         <div className="    relative z-10 flex items-center justify-center h-full w-[90vh]  ">
           <SplitTextSection />
-          {/* <p className= {` font-unbounded text-beige lg:text-[4rem]  m-3 lg:m-0 text-[36px]  opacity-95`  }  > Welcome <span className="text-red font-mono italic">here  </span>  </p> */}
+          {/* <p className= {` ${unboundedFont.className}  text-beige lg:text-[4rem]  m-3 lg:m-0 text-[36px]  opacity-95`  }  > Welcome <span className={` italic font-unbounded`}>here  </span>  </p> */}
+
          </div>
 
     </section>
 
-    <section className="">
+    <section className="no-scrollbar">
 
-          <div style={{ height: '100px', position: 'relative', overflowX: 'hidden' , paddingTop : '15px'  }}>
+          <div style={{ height: '110px', position: 'relative', overflow: 'hidden'   }}>
       {/* Basic horizontal loop */}
             <LogoLoopSection />
          </div>

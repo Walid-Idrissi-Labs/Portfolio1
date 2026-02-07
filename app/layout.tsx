@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import "./globals.css";
+import { ibmFont, unboundedFont } from "./fonts";
 
 export const metadata: Metadata = {
   title: "Portfolio Test 1",
@@ -9,16 +10,15 @@ export const metadata: Metadata = {
 
 
 
-export default function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) 
-{
+export default function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) {
   return (
     <html lang="en"
       //data-darkreader-mode="dynamic"
       //data-darkreader-scheme="dark"
       //data-darkreader-proxy-injected="true"
-      
+      className={`${unboundedFont.variable} ${ibmFont.variable}`}
       >
-      <body className="dark:bg-black dark:text-brick text-black" >
+      <body className={` dark:bg-black text-black no-scrollbar` }>
         {children}
       </body>
     </html>

@@ -9,7 +9,8 @@ import { useGSAP } from '@gsap/react';
 gsap.registerPlugin(ScrollTrigger, GSAPSplitText, useGSAP);
 
 export interface SplitTextProps {
-  text: string;
+  text?: string;
+  children?: React.ReactNode;
   allowHtml?: boolean;
   className?: string;
   delay?: number;
@@ -27,6 +28,7 @@ export interface SplitTextProps {
 
 const SplitText: React.FC<SplitTextProps> = ({
   text,
+  children,
   allowHtml = false,
   className = '',
   delay = 50,
@@ -63,7 +65,8 @@ const SplitText: React.FC<SplitTextProps> = ({
 
   useGSAP(
     () => {
-      if (!ref.current || !text || !fontsLoaded) return;
+      const hasContent = Boolean(text) || Boolean(children);
+      if (!ref.current || !hasContent || !fontsLoaded) return;
       // Prevent re-animation if already completed
       if (animationCompletedRef.current) return;
       const el = ref.current as HTMLElement & {
@@ -145,6 +148,7 @@ const SplitText: React.FC<SplitTextProps> = ({
     {
       dependencies: [
         text,
+        children,
         delay,
         duration,
         ease,
@@ -169,12 +173,19 @@ const SplitText: React.FC<SplitTextProps> = ({
     const Tag = (tag || 'p') as React.ElementType;
 
     if (allowHtml) {
-      return <Tag ref={ref} style={style} className={classes} dangerouslySetInnerHTML={{ __html: text }} />;
+      return (
+        <Tag
+          ref={ref}
+          style={style}
+          className={classes}
+          dangerouslySetInnerHTML={{ __html: text || '' }}
+        />
+      );
     }
 
     return (
       <Tag ref={ref} style={style} className={classes}>
-        {text}
+        {children ?? text}
       </Tag>
     );
   };

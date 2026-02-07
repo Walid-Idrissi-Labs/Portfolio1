@@ -11,10 +11,10 @@ export default function LightRaysSection() {
             const width = window.innerWidth;
 
             if (width < 640) {       // sm
-                setRayLength(1.67);    
+                setRayLength(1.87);    
 
             } else if (width >= 1024) { // lg
-                setRayLength(1.2);  
+                setRayLength(1);  
 
             } else {                 // md
                 setRayLength(0.8);  
@@ -33,18 +33,18 @@ export default function LightRaysSection() {
         raysOrigin="top-center"
         // raysColor="#AEA399"
         // raysColor="#DFEBF2"
-        raysColor="#FFFFFF"
-        raysSpeed={0.9}
-        lightSpread={0.8}
+        raysColor="#eeeeee"
+        raysSpeed={0.4}
+        lightSpread={2.9}
         rayLength={rayLength}
         followMouse={true}
-        mouseInfluence={0.67}
-        noiseAmount={0.6}
+        mouseInfluence={0.37}
+        noiseAmount={1}
         distortion={0.025}
         className="custom-rays"
-        pulsating={true}
-        fadeDistance={3.5}
-        saturation={1.5}
+        pulsating={false}
+        fadeDistance={1}
+        saturation={1}
     />
     )
 }
