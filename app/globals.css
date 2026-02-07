@@ -1,26 +1,48 @@
+/* @import "tailwindcss/theme.css";
+@import "tailwindcss/utilities.css";
+ */
+/* @config "../tailwind.config.ts"; */
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0
+
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html, body {
+  background: #000000;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  html, body {
+    background: #000;
+    color : #fff;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+
+
+/* @custom-variant dark (&:where(.dark, .dark *)); */
+
+
+/* @theme {
+  --font-sekuya: 'Sekuya', sans-serif;
+  --color-primary: #3b82f6;
+  --color-primary-dark: #2563eb;
+  --color-primary-light: #60a5fa;
+  
+  --color-secondary: #8b5cf6;
+  --color-secondary-dark: #7c3aed;
+  --color-secondary-light: #a78bfa;
+  
+  --color-accent: #f59e0b;
+  --color-accent-dark: #d97706;
+  --color-accent-light: #fbbf24;
+  
+  --color-success: #10b981;
+  --color-error: #ef4444;
+  --color-warning: #f59e0b;
+  --color-info: #3b82f6;
+} */
