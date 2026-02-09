@@ -14,8 +14,8 @@ export default function SplitTextSection() {
     return (   
         <SplitText
             className={tailwind}
-            delay={90}
-            duration={1.25}
+            delay={120}
+            duration={1.45}
             ease="power3.out"
             splitType="chars"
             from={{ opacity: 0, y: 50 }}

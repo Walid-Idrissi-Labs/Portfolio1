@@ -15,13 +15,16 @@ export default {
 
                 // beige : "#AEA399",
                 slate: "#74818C",
-                "beige-bright": "#F2E6D8",
-                "beige-dark": "#D9CEC5",
+                "beige_bright": "#F2E6D8",
+                "beige_dark": "#D9CEC5",
+                "faint_white": "#e6e6e6",
+                "not_quite_black" : "#0D0D0D",
             },
             fontFamily: {
                 // 'primary' : ['DM Sans', 'sans-serif'],
                 ibm: ["var(--font-ibm)", "monospace"],
                 unbounded: ["var(--font-unbounded)", "sans-serif"],
+                lato : ["var(--font-lato)", "sans-serif"],
             },
             backgroundImage: {
                 "silver-text-gradient": "linear-gradient(to right, #D9D9D9, #8C8C8C)",
