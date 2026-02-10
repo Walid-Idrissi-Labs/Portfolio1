@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from 'react';
-import tailwindConfig  from '../../tailwind.config';
+import tailwindConfig  from '../../../tailwind.config';
 // import { Link } from 'react-router-dom';
 import Link from 'next/link';
 import { gsap } from 'gsap';
@@ -44,7 +44,7 @@ baseColor = tailwindConfig.theme.extend.colors.beige_bright,
 pillColor = tailwindConfig.theme.extend.colors.slate,
 hoveredPillTextColor = tailwindConfig.theme.extend.colors.beige_dark,
 
-mobileBaseColor = tailwindConfig.theme.extend.colors.beige_bright,
+mobileBaseColor = tailwindConfig.theme.extend.colors.slate,
   pillTextColor,
   onMobileMenuClick,
   initialLoadAnimation = true
@@ -252,10 +252,10 @@ mobileBaseColor = tailwindConfig.theme.extend.colors.beige_bright,
     ['--pill-bg']: pillColor,
     ['--hover-text']: hoveredPillTextColor,
     ['--pill-text']: resolvedPillTextColor,
-    ['--nav-h']: '42px',
-    ['--logo']: '42px',
-    ['--pill-pad-x']: '10px',
-    ['--pill-gap']: '20px'
+    ['--nav-h']: '47px',
+    ['--logo']: '47px',
+    ['--pill-pad-x']: '17px',
+    ['--pill-gap']: '15px'
     //MY VARIabLes , MOSTLY FOR MOBILE
 
   } as React.CSSProperties;
@@ -263,7 +263,7 @@ mobileBaseColor = tailwindConfig.theme.extend.colors.beige_bright,
   return (
     <div className="absolute top-[1em] z-1000 w-full left-0 md:w-auto md:left-auto">
       <nav
-        className={`w-full md:w-max flex items-center justify-center  md:justify-start box-border gap-3 px-4 md:px-0  ${className}`}
+        className={`w-full md:w-max flex items-center justify-between  md:justify-start box-border gap-3 px-4 md:px-0  ${className}`}
         aria-label="Primary"
         style={cssVars}
       >
@@ -306,7 +306,7 @@ mobileBaseColor = tailwindConfig.theme.extend.colors.beige_bright,
 
         <div
           ref={navItemsRef}
-          className="relative items-center rounded-full hidden md:flex ml-6"
+          className="relative items-center rounded-full hidden md:flex ml-1"
           style={{
             height: 'var(--nav-h)',
             background: 'var(--base, #000)'
@@ -410,12 +410,12 @@ mobileBaseColor = tailwindConfig.theme.extend.colors.beige_bright,
           onClick={toggleMobileMenu}
           aria-label="Toggle menu"
           aria-expanded={isMobileMenuOpen}
-          className="md:hidden rounded-full border-0 flex flex-col items-center justify-center gap-1 cursor-pointer pr-3 relative"
+          className="md:hidden rounded-full border-0 flex flex-col items-center justify-center gap-1 cursor-pointer relative"
           style={{
             width: 'var(--nav-h)',
             height: 'var(--nav-h)',
             // background: 'var(--base, #000)'
-            background : tailwindConfig.theme.extend.colors.faint_white
+            background : tailwindConfig.theme.extend.colors.beige_bright , opacity: 0.9
           }}
         >
           <span
@@ -432,13 +432,13 @@ mobileBaseColor = tailwindConfig.theme.extend.colors.beige_bright,
       <div
     //   MOBILE MENU
         ref={mobileMenuRef}
-        className="md:hidden absolute  top-[3em] left-[3em] right-[3em] rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.12)] z-998 origin-top text-center"
+        className="md:hidden absolute  top-[3em] left-[3em] right-[3em] rounded-[1.75rem] shadow-[0_8px_32px_rgba(0,0,0,0.12)] z-998 origin-top text-center"
         style={{
           ...cssVars,
           background: 'var(--base, #f0f0f0)'
         }}
       >
-        <ul className="list-none m-0 p-0.75 flex flex-col gap-3.75">
+        <ul className="list-none m-0 p-0 flex flex-col gap-1.75">
           {items.map(item => {
             const defaultStyle: React.CSSProperties = {
               background: 'var(--pill-bg, #fff)',

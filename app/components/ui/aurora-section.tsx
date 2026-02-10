@@ -6,7 +6,7 @@ import Aurora from "./aurora-bit";
 
 
 
-import tailwindConfig from "../../tailwind.config";
+import tailwindConfig from "../../../tailwind.config";
 
 
 export default function AuroraSection() {
@@ -44,8 +44,8 @@ export default function AuroraSection() {
     return (
         <Aurora
         colorStops={colors}
-        blend={0.7}
-        amplitude={0.43}
+        blend={0.99}
+        amplitude={0.37}
         speed={1.1}
         />
     )

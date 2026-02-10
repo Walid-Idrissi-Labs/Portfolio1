@@ -4,16 +4,10 @@
 @config "../tailwind.config.ts";
 @import "tailwindcss";
 
-* {
-  /* box-sizing: border-box; */
-  
-  margin: 0;
-  padding: 0;
-  
 
-}
 
 html, body {
+  margin:0;
   width: 100%;
   max-width: 100%;
   overflow-x: clip;
@@ -43,7 +37,7 @@ html, body {
 
 @media (prefers-reduced-motion: no-preference) {
   html {
-    /* scroll-behavior: smooth; */
+    scroll-behavior: smooth;
   }
 }
 

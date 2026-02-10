@@ -15,9 +15,8 @@ import LogoLoop from "./logoloop-bit";
 
 // Alternative with image sources
 const imageLogos = [
-  { src: "/logo-react.svg", alt: "React", href: "https://react.dev/" },
   { src: "/logo-html5.svg", alt: "HTML5", href: "https://developer.mozilla.org/en-US/docs/Web/HTML" },
-  { src: "/logo-css3.svg", alt: "CSS3", href: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
+  { src: "/logo-react.svg", alt: "React", href: "https://react.dev/" },
   { src: "/logo-vue.svg", alt: "VueJS", href: "https://vuejs.org/" },
   { src: "/logo-js.svg", alt: "JavaScript", href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
   { src: "/logo-typescript.svg", alt: "TypeScript", href: "https://www.typescriptlang.org/" },
@@ -27,7 +26,9 @@ const imageLogos = [
   { src: "/logo-aws.svg", alt: "AWS", href: "https://aws.amazon.com/" },
   { src: "/logo-python.svg", alt: "Python", href: "https://www.python.org/" },
   { src: "/logo-postgres.svg", alt: "PostgreSQL", href: "https://www.postgresql.org/" },
-  { src : "null"},
+  { src: "/logo-bash.svg", alt: "Bash", href: "https://www.gnu.org/software/bash/" },
+  { src: "/logo-css3.svg", alt: "CSS3", href: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
+  // { src : "" , alt:"null" , href : "null" } // placeholder to make the loop smoother, it will be hidden with css
   
 ];
 
