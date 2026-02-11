@@ -13,6 +13,8 @@ import PillNav from "./components/page/pillnav-bit";
 import GradientText from "./components/page/gradienttext-bit";
 import ProfileCardSection from "./components/ui/profilecard-section"; 
 import {TextGenerateEffect} from "./components/ui/textgenerateeffect-bit"; 
+import BackgroundBeamsSection from "./components/ui/backgroundbeams-section";
+import StaticBackgroundBeamsSection from "./components/ui/staticbackgroundbeams-section";
 
 import { image } from "motion/react-client";
 
@@ -32,7 +34,7 @@ export default function Home() {
   return (
   < >
   
-    <section className={`w-full flex items-center justify-center  px-6 xl:px-16 md:fixed z-2 `}>
+    <section className={`w-full flex items-center justify-center  px-6 xl:px-16 md:fixed z-90 `}>
       <div className=" flex justify-around  px-1 lg:px-1 font-ibm  font-weight-500">
               <PillNav
               logo={walid_memoji}
@@ -68,6 +70,7 @@ export default function Home() {
             <LightRaysSection />
           </div> */}
         {/* welcome here text */}
+        <StaticBackgroundBeamsSection />
 
 
       </div> 
@@ -85,9 +88,13 @@ export default function Home() {
            <ScrollRevealSection /> 
       </div>
     </section> */}
-    <section id="overview" className="min-h-[90vh] pt-4 md:pt-6 w-full px-4 md:px-10 lg:px-15">
+    <section id="overview" className="min-h-[95vh] pt-4 md:pt-6 w-full px-4 md:px-10 lg:px-15                   outline-red-500 ">
+            <div className='z-10 relative w-full h-full flex flex-col items-center justify-center               outline-green-500 '>
+              <BackgroundBeamsSection  />
+            
+            
           {/* <div className="relative w-full  max-w-7xl flex justify-center md:justify-start md:pl-10 lg:pl-16 text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-unbounded outline outline-red-600"> */}
-            <div  className="relative w-full flex justify-center md:justify-start text-center md:text-left text-[3rem] sm:text-[3.6rem] md:text-[3.8rem] lg:text-[4.4] xl:text-[4.7rem] font-unbounded  outline-red-600">
+            <div  className="relative w-full flex justify-center md:justify-start text-center md:text-left text-[3rem] sm:text-[3.6rem] md:text-[3.8rem] lg:text-[4.4] xl:text-[4.7rem] font-unbounded z-1  outline-red-600">
               {/* <h1 className=" ">Overview</h1> */}
               <GradientText
                   colors={
@@ -95,7 +102,7 @@ export default function Home() {
                       tailwindConfig.theme.extend.colors.slate,
                       tailwindConfig.theme.extend.colors.beige_bright,
                   ]}
-                  animationSpeed={4}
+                  animationSpeed={3}
                   showBorder={true}
                   className="custom-class"
                 >
@@ -103,12 +110,12 @@ export default function Home() {
               </GradientText>
           </div>
 
-        <section  className="flex justify-center items-center h-full w-full mt-3 md:mt-4  outline-cyan-500">
+        <section  className=" z-1 flex justify-center items-center h-full w-full mt-3 md:mt-4  outline-cyan-500">
 
 
           <div className="flex flex-col gap-10 mx-auto w-full md:flex-row px-2 sm:px-6 md:px-10 py-10   outline-purple-600">
-              <div className="flex-1 text-[3rem]  mt-0  outline-amber-600">
-                  <div className='flex justify-start items-start pb-0  outline-green-500 '>
+              <div className="flex-1 flex items-center text-[3rem]   outline-amber-600">
+                  <div className='flex justify-center items-center pb-0 outline-green-500 w-full'>
                       <TextGenerateEffect 
                       words={"Computer science engineer focused on scalable web systems and meaningful user experiences, turning complex concepts into modern applications and bringing them *into the light*"} />
                   </div>
@@ -120,6 +127,7 @@ export default function Home() {
               </div>
           </div>
         </section>
+        </div>
   </section>
     
 

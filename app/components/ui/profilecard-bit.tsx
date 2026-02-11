@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useCallback, useMemo, useState } from 'react'
 import tailwindConfig from '@/tailwind.config';
 
 
-const DEFAULT_INNER_GRADIENT = 'linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)';
+const DEFAULT_INNER_GRADIENT = 'linear-gradient(145deg,#60496e8c 0%,#71C4FF44 0%)';
 
 const ANIMATION_CONFIG = {
   INITIAL_DURATION: 1200,
@@ -37,7 +37,7 @@ interface ProfileCardProps {
   avatarUrl?: string;
   iconUrl?: string;
   grainUrl?: string;
-  innerGradient?: string;
+  customInnerGradient?: string;
   behindGlowEnabled?: boolean;
   behindGlowColor?: string;
   behindGlowSize?: string;
@@ -68,7 +68,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   avatarUrl = '<Placeholder for avatar URL>',
   iconUrl = "/dev_icon.png",
   grainUrl = '<Placeholder for grain URL>',
-  innerGradient,
+  customInnerGradient,
   behindGlowEnabled = true,
   behindGlowColor,
   behindGlowSize,
@@ -347,15 +347,16 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
     //   '--icon': "/dev_icon.png",
      '--icon': `url(/dev_icon_2.png)`,
       '--grain': grainUrl ? `url(${grainUrl})` : 'none',
-      '--inner-gradient': innerGradient ?? DEFAULT_INNER_GRADIENT,
-      '--behind-glow-color': behindGlowColor ?? 'rgba(255, 255, 255, 1)',
+      '--inner-gradient': customInnerGradient ?? DEFAULT_INNER_GRADIENT,
+      '--behind-glow-color': behindGlowColor ?? 'rgba(255, 255, 255, 100)',
+
       '--behind-glow-size': behindGlowSize ?? '50%',
       '--pointer-x': '50%',
       '--pointer-y': '50%',
       '--pointer-from-center': '0',
       '--pointer-from-top': '0.5',
       '--pointer-from-left': '0.5',
-      '--card-opacity': '0',
+      '--card-opacity': '1',
       '--rotate-x': '0deg',
       '--rotate-y': '0deg',
       '--background-x': '50%',
@@ -380,7 +381,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
       '--sunpillar-clr-5': 'var(--sunpillar-5)',
       '--sunpillar-clr-6': 'var(--sunpillar-6)'
     }),
-    [`url(/dev_icon_2.png)`, grainUrl, innerGradient, behindGlowColor, behindGlowSize, cardRadius]
+    [`url(/dev_icon_2.png)`, grainUrl, customInnerGradient, behindGlowColor, behindGlowSize, cardRadius]
   );
 
   const handleContactClick = useCallback((): void => {
@@ -442,16 +443,21 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
     pointerEvents: 'none' as const
   };
 
+  //GLARE LAYER STYLE
+    //old values
+      // hsl(248, 25%, 80%) 12%,
+      // hsla(207, 40%, 30%, 0.8) 90%
+
   const glareStyle: React.CSSProperties = {
     transform: 'translate3d(0, 0, 1.1px)',
     overflow: 'hidden',
     backgroundImage: `radial-gradient(
       farthest-corner circle at var(--pointer-x) var(--pointer-y),
-      hsl(248, 25%, 80%) 12%,
-      hsla(207, 40%, 30%, 0.8) 90%
+      hsl(32, 13%, 90%) 19%,
+      hsla(33, 24%, 50%, 0.1) 60%
     )`,
     mixBlendMode: 'overlay',
-    filter: 'brightness(0.8) contrast(1.2)',
+    filter: 'brightness(0.67) contrast(1.0)',
     zIndex: 4,
     gridArea: '1 / -1',
     borderRadius: cardRadius,
@@ -478,7 +484,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
       {/*  CARD DIMENSIONS  */}
       <div ref={shellRef} className="relative z-1 group">
         <section
-          className="grid relative overflow-hidden h-[65svh] max-h-95 sm:h-[70svh] sm:max-h-105 md:h-[75svh] md:max-h-120 lg:h-[80svh] lg:max-h-135"
+          className="grid relative overflow-hidden h-[65svh] max-h-none sm:max-h-105 md:h-[75svh] md:max-h-120 lg:h-[80svh] lg:max-h-135"
           style={{
             aspectRatio: '0.718',
             borderRadius: cardRadius,
@@ -589,7 +595,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                     </div>
                   </div>
                   <button
-                    className="border border-white/10 rounded-lg px-4 py-3 text-xs font-semibold text-white/90 cursor-pointer backdrop-blur-[10px] transition-all duration-200 ease-out hover:border-white/40 hover:-translate-y-px"
+                    className="border border-white/10 rounded-lg px-3 py-2 text-xs sm:text-xs font-semibold text-white/90 cursor-pointer backdrop-blur-[10px] transition-all duration-200 ease-out hover:border-white/40 hover:-translate-y-px"
                     onClick={handleContactClick}
                     style={{ pointerEvents: 'auto', display: 'block', gridArea: 'auto', borderRadius: '8px' }}
                     type="button"
@@ -613,12 +619,13 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                 pointerEvents: 'none'
               }}
             >
-              <div className="w-full absolute flex flex-col" style={{ top: '3em', display: 'flex', gridArea: 'auto' }}>
+              {/* //NAME TEXT */}
+              <div className="w-full font-ibm    absolute flex flex-col" style={{ top: 'clamp(1.2em, 12vh, 3em)', display: 'flex', gridArea: 'auto' }}>
                 <h3
                   className="font-semibold m-0"
                   style={{
-                    fontSize: 'min(5svh, 3em)',
-                    backgroundImage: 'linear-gradient(to bottom, #fff, #6f6fbe)',
+                    fontSize: 'min(4svh, 2.2em)',
+                    backgroundImage: 'linear-gradient(to bottom, #0D0D0D99, #6f6fbe)',
                     backgroundSize: '1em 1.5em',
                     WebkitTextFillColor: 'transparent',
                     backgroundClip: 'text',
@@ -631,14 +638,16 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                 >
                   {name}
                 </h3>
+
+                {/* TITLE TEXT */}
                 <p
-                  className="font-semibold whitespace-nowrap mx-auto w-min"
+                  className="font-lato weight-100  whitespace-nowrap mx-auto w-min"
                   style={{
                     position: 'relative',
                     top: '-12px',
-                    fontSize: '16px',
+                    fontSize: 'clamp(11px, 3vw, 14px)',
                     margin: '0 auto',
-                    backgroundImage: 'linear-gradient(to bottom, #fff, #4a4ac0)',
+                    backgroundImage: 'linear-gradient(to bottom, #0d0d0d99, #4a4ac0)',
                     backgroundSize: '1em 1.5em',
                     WebkitTextFillColor: 'transparent',
                     backgroundClip: 'text',

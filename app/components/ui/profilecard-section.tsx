@@ -12,7 +12,7 @@ export default function ProfileCardSection() {
             handle="walid"
             status="Online"
             contactText="Contact Me"
-            avatarUrl="/walid_memoji_full.jpg"
+            avatarUrl="/walid_memoji_beige.jpg"
             iconUrl= "/devIcon.png"
             enableTilt={true}
             enableMobileTilt
@@ -21,8 +21,8 @@ export default function ProfileCardSection() {
             // showBehindGlow
             behindGlowEnabled = {true}
             showUserInfo = {true}
-            // behindGlowColor="rgba(60, 60, 60, 0.0)"
-            // customInnerGradient="linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)"
+            behindGlowColor="rgba(160, 160, 160, 60)"
+            customInnerGradient="linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)"
             />
 
     )
