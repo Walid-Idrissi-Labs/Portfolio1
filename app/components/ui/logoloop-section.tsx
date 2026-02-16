@@ -27,6 +27,7 @@ const imageLogos = [
   { src: "/logo-python.svg", alt: "Python", href: "https://www.python.org/" },
   { src: "/logo-postgres.svg", alt: "PostgreSQL", href: "https://www.postgresql.org/" },
   { src: "/logo-bash.svg", alt: "Bash", href: "https://www.gnu.org/software/bash/" },
+  {src : "/logo-three.svg" , alt : "Three.js" , href : "https://threejs.org/"},
   { src: "/logo-css3.svg", alt: "CSS3", href: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
   // { src : "" , alt:"null" , href : "null" } // placeholder to make the loop smoother, it will be hidden with css
   

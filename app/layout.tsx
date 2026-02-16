@@ -5,7 +5,7 @@ import { ibmFont, unboundedFont , latoFont } from "./fonts";
 import SmoothScroll from "./components/page/SmoothScroll";
 
 export const metadata: Metadata = {
-  title: "Portfolio Test 1",
+  title: "Walid Idrissi - Software Engineering Student",
   description: "testing...",
 };
 

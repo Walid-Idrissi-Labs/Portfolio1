@@ -67,7 +67,7 @@ interface TiltEngine {
 const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   avatarUrl = '<Placeholder for avatar URL>',
   iconUrl = "/dev_icon.png",
-  grainUrl = '<Placeholder for grain URL>',
+  grainUrl = '/grainImage.jpg',
   customInnerGradient,
   behindGlowEnabled = true,
   behindGlowColor,
@@ -346,7 +346,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
     () => ({
     //   '--icon': "/dev_icon.png",
      '--icon': `url(/dev_icon_2.png)`,
-      '--grain': grainUrl ? `url(${grainUrl})` : 'none',
+      '--grain': `url(${grainUrl})`,
       '--inner-gradient': customInnerGradient ?? DEFAULT_INNER_GRADIENT,
       '--behind-glow-color': behindGlowColor ?? 'rgba(255, 255, 255, 100)',
 
@@ -381,7 +381,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
       '--sunpillar-clr-5': 'var(--sunpillar-5)',
       '--sunpillar-clr-6': 'var(--sunpillar-6)'
     }),
-    [`url(/dev_icon_2.png)`, grainUrl, customInnerGradient, behindGlowColor, behindGlowSize, cardRadius]
+    [`url(/dev_icon_2.png)`, `url(${grainUrl})`, customInnerGradient, behindGlowColor, behindGlowSize, cardRadius]
   );
 
   const handleContactClick = useCallback((): void => {

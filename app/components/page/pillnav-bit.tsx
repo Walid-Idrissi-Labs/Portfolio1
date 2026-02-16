@@ -13,7 +13,7 @@ export type PillNavItem = {
 };
 
 export interface PillNavProps {
-  logo: string;
+  logos: [string, string];
   logoAlt?: string;
   items: PillNavItem[];
   activeHref?: string;
@@ -29,8 +29,11 @@ export interface PillNavProps {
   mobileBaseColor?: string;  //doesnt work yet
 }
 
+
+
+
 const PillNav: React.FC<PillNavProps> = ({
-  logo,
+  logos,
   logoAlt = 'Logo',
   items,
   activeHref,
@@ -60,6 +63,8 @@ mobileBaseColor = tailwindConfig.theme.extend.colors.slate,
   const mobileMenuRef = useRef<HTMLDivElement | null>(null);
   const navItemsRef = useRef<HTMLDivElement | null>(null);
   const logoRef = useRef<HTMLAnchorElement | HTMLElement | null>(null);
+
+  const [currentLogo, setCurrentLogo] = useState(logos[0]);
 
   useEffect(() => {
     const layout = () => {
@@ -174,13 +179,14 @@ mobileBaseColor = tailwindConfig.theme.extend.colors.slate,
   };
 
   const handleLogoEnter = () => {
+    setCurrentLogo((prevIndex) => (logos.indexOf(prevIndex)==0 ? logos[1] : logos[0]) )
     const img = logoImgRef.current;
     if (!img) return;
     logoTweenRef.current?.kill();
     gsap.set(img, { rotate: 0 });
     logoTweenRef.current = gsap.to(img, {
-      rotate: 5,
-      duration: 1.9,
+      rotate: 0,
+      duration: 0,
       ease,
       overwrite: 'auto'
     });
@@ -283,7 +289,7 @@ mobileBaseColor = tailwindConfig.theme.extend.colors.slate,
               background: 'var(--base, #000)'
             }}
           >
-            <img src={logo} alt={logoAlt} ref={logoImgRef} className="w-full h-full object-cover block" />
+            <img src={currentLogo} alt={logoAlt} ref={logoImgRef} className="w-full h-full object-cover block" />
           </Link>
         ) : (
           <a
@@ -300,7 +306,7 @@ mobileBaseColor = tailwindConfig.theme.extend.colors.slate,
               background: 'var(--base, #000)'
             }}
           >
-            <img src={logo} alt={logoAlt} ref={logoImgRef} className="w-full h-full object-cover block" />
+            <img src={currentLogo} alt={logoAlt} ref={logoImgRef} className="w-full h-full object-cover block" />
           </a>
         )}
 

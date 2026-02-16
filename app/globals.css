@@ -26,12 +26,12 @@ html, body {
 } */
 
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) { */
   html, body {
     background: #000;
     color : #fff;
   }
-}
+/* } */
 
 
 
@@ -65,3 +65,14 @@ html, body {
   --color-warning: #f59e0b;
   --color-info: #3b82f6;
 } */
+
+
+@import "tailwindcss";
+
+@theme inline {
+  --shadow-input:
+    0px 2px 3px -1px rgba(0, 0, 0, 0.1),
+    0px 1px 0px 0px rgba(25, 28, 33, 0.02),
+    0px 0px 0px 1px rgba(25, 28, 33, 0.08);
+}
+

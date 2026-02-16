@@ -15,10 +15,12 @@ import ProfileCardSection from "./components/ui/profilecard-section";
 import {TextGenerateEffect} from "./components/ui/textgenerateeffect-bit"; 
 import BackgroundBeamsSection from "./components/ui/backgroundbeams-section";
 import StaticBackgroundBeamsSection from "./components/ui/staticbackgroundbeams-section";
+import GlowingEffectSection from "./components/ui/glowingeffectgrid-section";
 
 import { image } from "motion/react-client";
 
-const walid_memoji = "/walid_memoji_face.png";
+const walid_1 = "/walid_memoji_face1.png";
+const walid_2 = "/walid_memoji_facewmac.png";
 
 
 
@@ -37,13 +39,13 @@ export default function Home() {
     <section className={`w-full flex items-center justify-center  px-6 xl:px-16 md:fixed z-90 `}>
       <div className=" flex justify-around  px-1 lg:px-1 font-ibm  font-weight-500">
               <PillNav
-              logo={walid_memoji}
+              logos={[walid_1 , walid_2]}
               logoAlt="Walid"
               items={[
                 { label: 'Home', href: '#home' },
                 { label: 'Overview', href: '#overview' },
                 { label: 'Projects', href: '#projects' },
-                { label: 'Contact', href: '#contact' }
+                { label: 'Contact', href: 'Contact' }
               ]}
               activeHref="/"
               className="custom-nav"
@@ -117,7 +119,7 @@ export default function Home() {
               <div className="flex-1 flex items-center text-[3rem]   outline-amber-600">
                   <div className='flex justify-center items-center pb-0 outline-green-500 w-full'>
                       <TextGenerateEffect 
-                      words={"Computer science engineer focused on scalable web systems and meaningful user experiences, turning complex concepts into modern applications and bringing them *into the light*"} />
+                      words={"Software engineering student focused on scalable web systems and meaningful user experiences, turning complex concepts into modern applications and bringing them *into the light*"} />
                   </div>
               </div>
               <div className="flex-1 flex justify-center items-center  outline-blue-600">
@@ -131,7 +133,8 @@ export default function Home() {
   </section>
     
 
-    <section className="no-scrollbar mt-30">
+      {/* LOGO LOOP SECTION             */}
+    <section id="skills" className="no-scrollbar mt-30">
 
           <div style={{ height: '110px', position: 'relative', overflow: 'hidden'   }}>
       {/* Basic horizontal loop */}
@@ -139,15 +142,24 @@ export default function Home() {
          </div>
 
     </section>
-    <p className="font-lato italic">hi</p>
-    
 
-    <section id="projects">
-      <p>hi</p>
+
+    
+     {/* GRID SECTION              */}
+    <section id="projects" className=" outline-red-500">
+      <div className="w-[90vw] mx-auto my-5 py-10 flex items-center justify-center     outline-purple-700">  
+          <GlowingEffectSection />    
+      </div>
     </section>
 
     <section id="contact">
-      <p>hi</p>
+      <p>contact</p>
+    </section>
+
+
+    <section>
+            <p>more about me </p>
+
     </section>
 
   </>  

@@ -14,9 +14,10 @@ export default function ProfileCardSection() {
             contactText="Contact Me"
             avatarUrl="/walid_memoji_beige.jpg"
             iconUrl= "/devIcon.png"
+            grainUrl="/grainImage.jpg"
             enableTilt={true}
             enableMobileTilt
-            onContactClick={() => window.open('https://www.x.com', '_blank', 'noopener,noreferrer')}
+            onContactClick={() => window.open('/Contact', '_blank', 'noopener,noreferrer')}
             // showIcon
             // showBehindGlow
             behindGlowEnabled = {true}
