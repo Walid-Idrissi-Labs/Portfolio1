@@ -1,18 +1,21 @@
 "use client";
+
  
 
-import { Box, Lock, Search, Settings, Sparkles , CircleQuestionMark , Construction } from "lucide-react";
+import { Box, Lock, Search, Settings, Sparkles , CircleQuestionMark , Construction , Cloud } from "lucide-react";
 import { GlowingEffect } from "../ui/glowingeffectgrid-bit";
 import tailwindConfig from "@/tailwind.config";
+const url_shortener = "/project-url-shortener-portfolio-preview-card.png";
  
 export default function GlowingEffectSection() {
 return (
     <ul className="grid grid-cols-1 grid-rows-none gap-4 md:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:max-h-136 xl:grid-rows-2">
       <GridItem
         area="md:[grid-area:1/1/2/7] xl:[grid-area:1/1/2/5]"
-        icon={<Construction className="h-4 w-4 text-faint_white" />}
-        title="Under Construction"
-        description="still figuring out what to put here..."
+        icon={<Cloud className="h-4 w-4 text-faint_white" />}
+        title="URL Shortener"
+        description="Using IaC, deployed on AWS"
+        backgroundImage={url_shortener}
       />
  
       <GridItem
@@ -52,12 +55,13 @@ interface GridItemProps {
   icon: React.ReactNode;
   title: string;
   description: React.ReactNode;
+  backgroundImage?: string; // <-- new optional prop
 }
  
-const GridItem = ({ area, icon, title, description }: GridItemProps) => {
+const GridItem = ({ area, icon, title, description, backgroundImage }: GridItemProps) => {
   return (
     <li className={`min-h-56 list-none ${area}`}>
-      <div className="relative h-full rounded-2xl border p-2 md:rounded-3xl md:p-3">
+      <div className="group relative h-full rounded-2xl border p-2 md:rounded-3xl md:p-3">
         <GlowingEffect
           blur={0.5}
           borderWidth={4}
@@ -71,8 +75,38 @@ const GridItem = ({ area, icon, title, description }: GridItemProps) => {
         //   variant="white"
         />
         <div className="border-0.75 relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl p-6 md:p-6 dark:shadow-[0px_0px_27px_0px_#2D2D2D]">
-          <div className="relative flex flex-1 flex-col justify-between gap-3">
-            <div className="w-fit rounded-lg border border-gray-600 p-2">
+
+          {/* Background image layer — sits behind everything */}
+          {backgroundImage && (
+            <>
+              {/*
+                The image itself: 
+                - absolute + inset-0 fills the card
+                - object-cover prevents stretching (crops to fill, like background-size: cover)
+                - w-full h-full ensures it spans the container
+                - transition-opacity so the reveal is smooth
+              */}
+              <img
+                src={backgroundImage}
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-500"
+              />
+
+              {/*
+                Dark overlay:
+                - Starts nearly opaque (bg-black/80) — image is barely visible
+                - On group hover, fades to transparent (group-hover:opacity-0)
+                - This sits on top of the image but below the content
+                - transition makes the reveal smooth
+              */}
+              <div className="absolute inset-0 bg-black/80 transition-opacity duration-500 group-hover:opacity-0" />
+            </>
+          )}
+
+          {/* Card content — z-10 ensures it always sits above the image and overlay */}
+          <div className="relative z-10 flex flex-1 flex-col justify-between gap-3">
+            <div className="w-fit rounded-lg border border-gray-600 p-2 bg-black/30 backdrop-blur-sm">
               {icon}
             </div>
             <div className="space-y-3">
@@ -84,6 +118,7 @@ const GridItem = ({ area, icon, title, description }: GridItemProps) => {
               </h2>
             </div>
           </div>
+
         </div>
       </div>
     </li>

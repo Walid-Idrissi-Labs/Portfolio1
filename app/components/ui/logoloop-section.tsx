@@ -18,7 +18,7 @@ const imageLogos = [
   { src: "/logo-html5.svg", alt: "HTML5", href: "https://developer.mozilla.org/en-US/docs/Web/HTML" },
   { src: "/logo-react.svg", alt: "React", href: "https://react.dev/" },
   { src: "/logo-vue.svg", alt: "VueJS", href: "https://vuejs.org/" },
-  { src: "/logo-js.svg", alt: "JavaScript", href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
+  { src: "/logo-javascript.svg", alt: "JavaScript", href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
   { src: "/logo-typescript.svg", alt: "TypeScript", href: "https://www.typescriptlang.org/" },
   { src: "/logo-nextjs.svg", alt: "Next.js", href: "https://nextjs.org/" },
   { src: "/logo-tailwind.svg", alt: "Tailwind CSS", href: "https://tailwindcss.com/" },
@@ -28,6 +28,7 @@ const imageLogos = [
   { src: "/logo-postgres.svg", alt: "PostgreSQL", href: "https://www.postgresql.org/" },
   { src: "/logo-bash.svg", alt: "Bash", href: "https://www.gnu.org/software/bash/" },
   {src : "/logo-three.svg" , alt : "Three.js" , href : "https://threejs.org/"},
+  {src : "/logo-docker.svg" , alt : "Docker" , href : "https://www.docker.com/"},
   { src: "/logo-css3.svg", alt: "CSS3", href: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
   // { src : "" , alt:"null" , href : "null" } // placeholder to make the loop smoother, it will be hidden with css
   

@@ -13,143 +13,164 @@ import { Input } from "../ui/input"
 import { Label } from "../ui/label";
 import { Bot } from "lucide-react";
 import { Textarea } from "../ui/textarea"
+import { Spotlight } from "../ui/spotlightbg";
+import { SendButton } from "../ui/stateful-button";
+import FadeContent from "./fadeanimation";
 
 
+export function SignupForm() {
 
 
-// export function Contact() {
-//   return (
-// <div className="h-[40vw] w-[30vw] outline outline-red-500 flex items-center justify-center ">
-//     <FieldSet className="w-full max-w-xs">
-//       <FieldGroup>
-
-
-//         <Field>
-//           <FieldLabel htmlFor="name">Name</FieldLabel>
-//           <Input id="name" type="text" placeholder="Your Name" />
-//         </Field>
-
-
-//       <Field>
-//         <FieldLabel htmlFor="fieldgroup-email">Email</FieldLabel>
-//         <Input id="fieldgroup-email" placeholder="name@example.com" required />
-//       </Field>
-
-
-//         <Field>
-//       <FieldLabel htmlFor="input-required">
-//         Required Field <span className="text-destructive">*</span>
-//       </FieldLabel>
-//       <Input
-//         id="input-required"
-//         placeholder="This field is required"
-//         required
-//       />
-//       <FieldDescription>This field must be filled out.</FieldDescription>
-//     </Field>
-
-
-
-//       <Field>
-//         <FieldLabel htmlFor="fieldgroup-email">Email</FieldLabel>
-//         <Input
-//           id="fieldgroup-email"
-//           type="email"
-//           placeholder="name@example.com"
-//         />
-//         <FieldDescription>
-//           We&apos;ll send updates to this address.
-//         </FieldDescription>
-//       </Field>
-//       <Field orientation="vertical">
-//         <Button type="submit">Send e-mail</Button>
-//       </Field>
-
-        
-
-
-//       </FieldGroup>
-//     </FieldSet>
-// </div>
-//   )
-// }
-
-
-
-
-export function SignupFormDemo() {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    
-    console.log("Form submitted");
-    alert("Form submitted");
+  const [form, setForm] = React.useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [showSuccess, setShowSuccess] = React.useState(false);
+  const hideTimerRef = React.useRef<number | null>(null);
+  
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
   };
+  
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+  
+    const res = await fetch("/api/send", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(form),
+    });
+  
+    const data = await res.json();
+    setShowSuccess(res.ok);
+
+  };
+
+  const submitAction = async (): Promise<boolean> => {
+    const res = await fetch("/api/send", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(form),
+    });
+
+    const data = await res.json();
+
+    setShowSuccess(res.ok);
+
+    return res.ok;
+  };
+
+  React.useEffect(() => {
+    if (!showSuccess) return;
+    if (hideTimerRef.current) {
+      window.clearTimeout(hideTimerRef.current);
+    }
+    hideTimerRef.current = window.setTimeout(() => {
+      setShowSuccess(false);
+    }, 5000);
+    return () => {
+      if (hideTimerRef.current) {
+        window.clearTimeout(hideTimerRef.current);
+      }
+    };
+  }, [showSuccess]);
+
+
+
   return (
-    <div className="shadow-input mx-auto w-full max-w-md rounded-xl  p-4 md:rounded-2xl md:p-8 bg-black       outline outline-neutral-500">
-      <h2 className="text-xl xl:text-2xl font-bold text-neutral-200 ">
-        Contact Me
-      </h2>
-      <p className="mt-2 max-w-sm text-sm text-neutral-600 ">
-        Sign up for early access and be the first to experience our platform.
-      </p>
+    <>
+      {/* Full-page background with gradient blinds */}
+      <div className="fixed inset-0 z-0">
+            <div className="relative flex w-screen h-screen overflow-hidden rounded-md bg-black/96 antialiased md:items-center md:justify-center">
+              <div
+                className={cn(
+                  "pointer-events-none absolute inset-0 bg-size-[40px_40px] select-none",
+                  "bg-[linear-gradient(to_right,#171717_1px,transparent_1px),linear-gradient(to_bottom,#171717_1px,transparent_1px)]",
+                )}
+              />
+        
+              <Spotlight
+                className="-top-40 left-0 md:-top-20 md:left-60"
+                fill="white"
+              />
 
-      <form className="mt-8" onSubmit={handleSubmit}>
-        {/* <div className="mb-4 flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-2"> */}
-          <LabelInputContainer className="mb-6">
-            <Label htmlFor="name">Name</Label>
-            <Input id="name" placeholder="John Doe" type="text" />
-          </LabelInputContainer>
-          {/* <LabelInputContainer>
-            <Label htmlFor="lastname">Last name</Label>
-            <Input id="lastname" placeholder="Durden" type="text" />
-            <BottomGradient />
-          </LabelInputContainer> */}
-        {/* </div> */}
-        <LabelInputContainer className="mb-7">
-          <Label htmlFor="email">Email Address</Label>
-          <Input id="email" placeholder="projectmayhem@fc.com" type="email" />
-        </LabelInputContainer>
+            </div>
+      </div>
 
 
 
-
-        <Field>
-            <FieldLabel htmlFor="message">Message</FieldLabel>
-            <Textarea
-                id="message"
-                placeholder="Enter your message here..."
-                rows={4}
-            />
-
-        </Field>
-
-        <div className="my-8 h-px w-full bg-gradient-to-r from-transparent via-neutral-300 to-transparent dark:via-neutral-700" />
-
-        <button
-          className="group/btn my-3 relative block h-10 w-full rounded-md bg-gradient-to-br from-black to-neutral-600 font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:bg-zinc-800 dark:from-zinc-900 dark:to-zinc-900 dark:shadow-[0px_1px_0px_0px_#27272a_inset,0px_-1px_0px_0px_#27272a_inset]"
-          type="submit"
-        >
-          Send Message &rarr;
-          <BottomGradient />
-        </button>
+      <div
+        className={cn(
+          "fixed left-1/2 top-4 z-50 -translate-x-1/2 rounded-full bg-green-500 px-5 py-2 text-sm font-medium text-white shadow-lg transition-all duration-700",
+          showSuccess ? "translate-y-0 opacity-100" : "-translate-y-6 opacity-0 pointer-events-none",
+        )}
+      >
+        Message sent successfully! I will get back to you as soon as possible.
+      </div>
 
 
-        <div className="flex flex-col space-y-4">
+      <div className="relative z-10 pointer-events-auto px-7 py-5">
+        <FadeContent blur={true} duration={2800} ease="ease-out" initialOpacity={0} delay={100}>
+          <div className="shadow-input mx-auto w-full max-w-md rounded-xl p-4 md:rounded-2xl md:p-8 bg-black outline outline-neutral-500">
+          <h2 className="text-xl xl:text-2xl font-bold text-neutral-200  text-center md:text-left">
+            Contact Me
+          </h2>
+          <p className="mt-2 max-w-sm text-sm text-neutral-600 ">
+            Send me a message and I'll get back to you as soon as possible.
+          </p>
 
+          <form className="mt-8" onSubmit={handleSubmit}>
+            
+              <LabelInputContainer className="mb-6">
+                <Label htmlFor="name">Name</Label>
+                <Input id="name" name="name" placeholder="Your Name" type="text" onChange={handleChange} />
+              </LabelInputContainer>
+
+            <LabelInputContainer className="mb-7">
+              <Label htmlFor="email">Email Address</Label>
+              <Input id="email" name="email" placeholder="your.email@example.com" type="email" onChange={handleChange} />
+            </LabelInputContainer>
+
+
+            <Field>
+                <FieldLabel htmlFor="message">Message</FieldLabel>
+                <Textarea
+                    id="message"
+                    name="message"
+                    placeholder="Enter your message here..."
+                    rows={4}
+                    onChange={handleChange}
+                    />
+
+            </Field>
+
+            <div className="my-7 h-px w-full bg-linear-to-r from-transparent via-neutral-300 to-transparent dark:via-neutral-700" />
+
+
+            <div className="flex m-0.1 mt-3 w-full items-center justify-center">
+              <SendButton onAction={submitAction} type="button">Send message</SendButton>
+            </div>
+
+
+          </form>
         </div>
-      </form>
-    </div>
+        </FadeContent>
+      </div>
+    </>
   );
 }
 
-const BottomGradient = () => {
-  return (
-    <>
-      <span className="absolute inset-x-0 -bottom-px block h-px w-full bg-gradient-to-r from-transparent via-blue-200 to-transparent opacity-0 transition duration-500 group-hover/btn:opacity-100" />
-      <span className="absolute inset-x-10 -bottom-px mx-auto block h-px w-1/2 bg-gradient-to-r from-transparent via-blue-300 to-transparent opacity-0 blur-sm transition duration-500 group-hover/btn:opacity-100" />
-    </>
-  );
-};
+
 
 const LabelInputContainer = ({
   children,
