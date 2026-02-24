@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { useRouter } from "next/navigation";
 import { cn } from "../../lib/utils";
 import { Button } from "../ui/button"
 import {
@@ -9,6 +10,8 @@ import {
   FieldLabel,
   FieldSet,
 } from "../ui/field"
+import { Alert, AlertDescription, AlertTitle } from "../ui/alert"
+import { CheckCircle2Icon, HomeIcon } from "lucide-react"
 import { Input } from "../ui/input"
 import { Label } from "../ui/label";
 import { Bot } from "lucide-react";
@@ -19,6 +22,7 @@ import FadeContent from "./fadeanimation";
 
 
 export function SignupForm() {
+  const router = useRouter();
 
 
   const [form, setForm] = React.useState({
@@ -27,6 +31,8 @@ export function SignupForm() {
     message: "",
   });
   const [showSuccess, setShowSuccess] = React.useState(false);
+  const [showFollowup, setShowFollowup] = React.useState(false);
+  const [showError, setShowError] = React.useState(false);
   const hideTimerRef = React.useRef<number | null>(null);
   
   const handleChange = (
@@ -40,6 +46,7 @@ export function SignupForm() {
   
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setShowFollowup(false);
   
     const res = await fetch("/api/send", {
       method: "POST",
@@ -51,10 +58,11 @@ export function SignupForm() {
   
     const data = await res.json();
     setShowSuccess(res.ok);
-
+    setShowError(!res.ok);
   };
 
   const submitAction = async (): Promise<boolean> => {
+    setShowFollowup(false);
     const res = await fetch("/api/send", {
       method: "POST",
       headers: {
@@ -72,12 +80,14 @@ export function SignupForm() {
 
   React.useEffect(() => {
     if (!showSuccess) return;
+    setShowFollowup(false);
     if (hideTimerRef.current) {
       window.clearTimeout(hideTimerRef.current);
     }
     hideTimerRef.current = window.setTimeout(() => {
       setShowSuccess(false);
-    }, 5000);
+      setShowFollowup(true);
+    }, 6000);
     return () => {
       if (hideTimerRef.current) {
         window.clearTimeout(hideTimerRef.current);
@@ -108,14 +118,55 @@ export function SignupForm() {
       </div>
 
 
-
-      <div
+                {/* SUCCESS ALERT */}
+      {/* <div
         className={cn(
           "fixed left-1/2 top-4 z-50 -translate-x-1/2 rounded-full bg-green-500 px-5 py-2 text-sm font-medium text-white shadow-lg transition-all duration-700",
           showSuccess ? "translate-y-0 opacity-100" : "-translate-y-6 opacity-0 pointer-events-none",
         )}
       >
         Message sent successfully! I will get back to you as soon as possible.
+      </div> */}
+       <div
+        className={cn(
+          "fixed left-1/2 top-4 z-50 -translate-x-1/2  transition-all duration-700 text-md md:text-lg lg:text-xl",
+            showSuccess ? "translate-y-0 opacity-100" : "-translate-y-6 opacity-0 pointer-events-none",
+        )}
+      >
+            <Alert className="max-w-md">
+
+              <CheckCircle2Icon color="green" size="32" />
+              <AlertTitle className="col-span-2 text-center">
+                Message Sent Successfully !
+              </AlertTitle>
+
+                  <AlertDescription className="col-span-2 text-center">
+                    I will get back to you as soon as possible.
+                  </AlertDescription>
+
+            </Alert>
+      </div>
+
+      <div
+        className={cn(
+          "fixed left-1/2 top-4 z-50 -translate-x-1/2 transition-all duration-700 text-md md:text-lg lg:text-xl",
+          showFollowup ? "translate-y-0 opacity-100" : "-translate-y-6 opacity-0 pointer-events-none",
+        )}
+      >
+        <Alert className="max-w-md">
+          <div>
+            <HomeIcon size={16}  className="mx-auto"/>
+          <div className="col-span-2 flex w-full items-center justify-center">
+            <Button
+              className="bg-neutral-900 text-neutral-100 hover:bg-neutral-800"
+              onClick={() => router.push("/")}
+            >
+              Back to Main Page
+            </Button>
+          </div>
+
+          </div>
+        </Alert>
       </div>
 
 
