@@ -8,7 +8,7 @@ export const TextGenerateEffect = ({
   words,
   className,
   filter = true,
-  duration = 1.4,
+  duration = 5,
 }: {
   words: string;
   className?: string;
@@ -27,8 +27,8 @@ export const TextGenerateEffect = ({
           filter: filter ? "blur(0px)" : "none",
         },
         {
-          duration: duration ? duration : 1,
-          delay: stagger(0.18),
+          duration: duration ? duration : 5,
+          delay: stagger(0.08),
         }
       );
     }

@@ -57,14 +57,13 @@ mobileBaseColor = tailwindConfig.theme.extend.colors.slate,
   const circleRefs = useRef<Array<HTMLSpanElement | null>>([]);
   const tlRefs = useRef<Array<gsap.core.Timeline | null>>([]);
   const activeTweenRefs = useRef<Array<gsap.core.Tween | null>>([]);
-  const logoImgRef = useRef<HTMLImageElement | null>(null);
-  const logoTweenRef = useRef<gsap.core.Tween | null>(null);
+  const logoLayerRefs = useRef<Array<HTMLImageElement | null>>([]);
+  const logoTweenRef = useRef<gsap.core.Timeline | null>(null);
+  const activeLogoIndexRef = useRef(0);
   const hamburgerRef = useRef<HTMLButtonElement | null>(null);
   const mobileMenuRef = useRef<HTMLDivElement | null>(null);
   const navItemsRef = useRef<HTMLDivElement | null>(null);
   const logoRef = useRef<HTMLAnchorElement | HTMLElement | null>(null);
-
-  const [currentLogo, setCurrentLogo] = useState(logos[0]);
 
   useEffect(() => {
     const layout = () => {
@@ -153,6 +152,23 @@ mobileBaseColor = tailwindConfig.theme.extend.colors.slate,
       }
     }
 
+    const firstLogo = logoLayerRefs.current[0];
+    const secondLogo = logoLayerRefs.current[1];
+    if (firstLogo && secondLogo) {
+      gsap.set(firstLogo, {
+        autoAlpha: 1,
+        filter: 'blur(0px)',
+        scale: 0.9,
+        zIndex: 2
+      });
+      gsap.set(secondLogo, {
+        autoAlpha: 0,
+        filter: 'blur(7px)',
+        scale: 0.9,
+        zIndex: 1
+      });
+    }
+
     return () => window.removeEventListener('resize', onResize);
   }, [items, ease, initialLoadAnimation]);
 
@@ -178,19 +194,37 @@ mobileBaseColor = tailwindConfig.theme.extend.colors.slate,
     });
   };
 
-  const handleLogoEnter = () => {
-    setCurrentLogo((prevIndex) => (logos.indexOf(prevIndex)==0 ? logos[1] : logos[0]) )
-    const img = logoImgRef.current;
-    if (!img) return;
+  const animateLogoTo = (targetIndex: 0 | 1) => {
+    const fromIndex = activeLogoIndexRef.current as 0 | 1;
+    if (fromIndex === targetIndex) return;
+
+    const fromLogo = logoLayerRefs.current[fromIndex];
+    const toLogo = logoLayerRefs.current[targetIndex];
+    if (!fromLogo || !toLogo) return;
+
     logoTweenRef.current?.kill();
-    gsap.set(img, { rotate: 0 });
-    logoTweenRef.current = gsap.to(img, {
-      rotate: 0,
-      duration: 0,
-      ease,
-      overwrite: 'auto'
-    });
+    gsap.set(toLogo, { zIndex: 2 });
+    gsap.set(fromLogo, { zIndex: 1 });
+
+    logoTweenRef.current = gsap.timeline({ defaults: { ease, overwrite: 'auto' } });
+    logoTweenRef.current
+      .fromTo(
+        toLogo,
+        { autoAlpha: 0, filter: 'blur(9px)', scale: 0.9 },
+        { autoAlpha: 1, filter: 'blur(0px)', scale: 1, duration: 0.5 },
+        0
+      )
+      .to(
+        fromLogo,
+        { autoAlpha: 0, filter: 'blur(7px)', scale: 0.89, duration: 0.42 },
+        0
+      );
+
+    activeLogoIndexRef.current = targetIndex;
   };
+
+  const handleLogoEnter = () => animateLogoTo(1);
+  const handleLogoLeave = () => animateLogoTo(0);
 
   const toggleMobileMenu = () => {
     const newState = !isMobileMenuOpen;
@@ -278,35 +312,67 @@ mobileBaseColor = tailwindConfig.theme.extend.colors.slate,
             href={items[0].href}
             aria-label="Home"
             onMouseEnter={handleLogoEnter}
+            onMouseLeave={handleLogoLeave}
             role="menuitem"
             ref={el => {
               logoRef.current = el;
             }}
-            className="rounded-full p-2 inline-flex items-center justify-center overflow-hidden"
+            className="rounded-full p-2 inline-flex items-center justify-center overflow-hidden relative"
             style={{
               width: 'var(--nav-h)',
               height: 'var(--nav-h)',
               background: 'var(--base, #000)'
             }}
           >
-            <img src={currentLogo} alt={logoAlt} ref={logoImgRef} className="w-full h-full object-cover block" />
+            <img
+              src={logos[0]}
+              alt={logoAlt}
+              ref={el => {
+                logoLayerRefs.current[0] = el;
+              }}
+              className="absolute inset-0 w-full h-full object-cover block"
+            />
+            <img
+              src={logos[1]}
+              alt={logoAlt}
+              ref={el => {
+                logoLayerRefs.current[1] = el;
+              }}
+              className="absolute inset-0 w-full h-full object-cover block"
+            />
           </Link>
         ) : (
           <a
             href={items?.[0]?.href || '#'}
             aria-label="Home"
             onMouseEnter={handleLogoEnter}
+            onMouseLeave={handleLogoLeave}
             ref={el => {
               logoRef.current = el;
             }}
-            className="rounded-full p-2 inline-flex items-center justify-center overflow-hidden"
+            className="rounded-full p-2 inline-flex items-center justify-center overflow-hidden relative"
             style={{
               width: 'var(--nav-h)',
               height: 'var(--nav-h)',
               background: 'var(--base, #000)'
             }}
           >
-            <img src={currentLogo} alt={logoAlt} ref={logoImgRef} className="w-full h-full object-cover block" />
+            <img
+              src={logos[0]}
+              alt={logoAlt}
+              ref={el => {
+                logoLayerRefs.current[0] = el;
+              }}
+              className="absolute inset-0 w-full h-full object-cover block"
+            />
+            <img
+              src={logos[1]}
+              alt={logoAlt}
+              ref={el => {
+                logoLayerRefs.current[1] = el;
+              }}
+              className="absolute inset-0 w-full h-full object-cover block"
+            />
           </a>
         )}
 

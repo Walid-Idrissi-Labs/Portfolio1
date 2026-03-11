@@ -17,6 +17,10 @@ import BackgroundBeamsSection from "./components/ui/backgroundbeams-section";
 import StaticBackgroundBeamsSection from "./components/ui/staticbackgroundbeams-section";
 import GlowingEffectSection from "./components/ui/glowingeffectgrid-section";
 
+
+
+
+
 import { image } from "motion/react-client";
 
 const walid_1 = "/walid_memoji_face1.png";
@@ -96,7 +100,7 @@ export default function Home() {
             
             
           {/* <div className="relative w-full  max-w-7xl flex justify-center md:justify-start md:pl-10 lg:pl-16 text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-unbounded outline outline-red-600"> */}
-            <div  className="relative w-full flex justify-center md:justify-start text-center md:text-left text-[3rem] sm:text-[3.6rem] md:text-[3.8rem] lg:text-[4.4] xl:text-[4.7rem] font-unbounded z-1  outline-red-600">
+            <div  className="relative w-full flex justify-center md:justify-start text-center md:text-left text-[3rem] sm:text-[3.6rem] md:text-[3.8rem] lg:text-[4.4] xl:text-[4.7rem] font-unbounded z-1   outline-red-600">
               {/* <h1 className=" ">Overview</h1> */}
               <GradientText
                   colors={
@@ -108,7 +112,7 @@ export default function Home() {
                   showBorder={true}
                   className="custom-class"
                 >
-                  Overview
+                  In Brief 
               </GradientText>
           </div>
 
@@ -144,13 +148,35 @@ export default function Home() {
     </section>
 
 
-    
-     {/* GRID SECTION              */}
-    <section id="projects" className=" outline-red-500">
-      <div className="w-[90vw] mx-auto my-5 py-10 flex items-center justify-center     outline-purple-700">  
-          <GlowingEffectSection />    
-      </div>
-    </section>
+        {/* PROJECTS */}
+        <div className='min-h-[95vh] pt-4 md:pt-6 w-full px-4 md:px-10 lg:px-15  outline-green-500 '>
+        
+                <div  className="relative w-full flex justify-center md:justify-end text-center md:text-left text-[3rem] sm:text-[3.6rem] md:text-[3.8rem] lg:text-[4.4] xl:text-[4.7rem] font-unbounded z-1   outline-red-600">
+              {/* <h1 className=" ">Overview</h1> */}
+              <GradientText
+                  colors={
+                    [ tailwindConfig.theme.extend.colors.beige_dark,
+                      tailwindConfig.theme.extend.colors.slate,
+                      tailwindConfig.theme.extend.colors.beige_bright,
+                    ]}
+                    animationSpeed={3}
+                    showBorder={true}
+                    className="custom-class"
+                    >
+                  Project Catalogue
+              </GradientText>
+          </div>
+
+          {/* GRID SECTION              */}
+
+          <section id="projects" className=" outline-red-500">
+            <div className="w-[90vw] mx-auto my-5 py-10 flex items-center justify-center     outline-purple-700">  
+                <GlowingEffectSection />    
+            </div>
+          </section>
+
+        </div>
+
 
     <section id="contact">
       <p>contact</p>

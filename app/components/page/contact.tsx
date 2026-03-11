@@ -2,20 +2,20 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import { cn } from "../../lib/utils";
-import { Button } from "../ui/button"
+import { Button } from "../utilities/button"
 import {
   Field,
   FieldDescription,
   FieldGroup,
   FieldLabel,
   FieldSet,
-} from "../ui/field"
-import { Alert, AlertDescription, AlertTitle } from "../ui/alert"
+} from "../utilities/field"
+import { Alert, AlertDescription, AlertTitle } from "../utilities/alert"
 import { CheckCircle2Icon, HomeIcon } from "lucide-react"
-import { Input } from "../ui/input"
-import { Label } from "../ui/label";
+import { Input } from "../utilities/input"
+import { Label } from "../utilities/label";
 import { Bot } from "lucide-react";
-import { Textarea } from "../ui/textarea"
+import { Textarea } from "../utilities/textarea"
 import { Spotlight } from "../ui/spotlightbg";
 import { SendButton } from "../ui/stateful-button";
 import FadeContent from "./fadeanimation";

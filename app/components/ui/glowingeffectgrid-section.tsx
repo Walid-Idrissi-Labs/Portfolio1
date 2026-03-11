@@ -2,10 +2,12 @@
 
  
 
-import { Box, Lock, Search, Settings, Sparkles , CircleQuestionMark , Construction , Cloud } from "lucide-react";
+import { Box, Lock, Search, Settings, Sparkles , CircleQuestionMark , Construction , Cloud , Terminal} from "lucide-react";
 import { GlowingEffect } from "../ui/glowingeffectgrid-bit";
 import tailwindConfig from "@/tailwind.config";
-const url_shortener = "/project-url-shortener-portfolio-preview-card.png";
+const url_shortener = "/project-url-shortener.png";
+const tascii = "/project-tascii.png"
+
  
 export default function GlowingEffectSection() {
 return (
@@ -14,22 +16,23 @@ return (
         area="md:[grid-area:1/1/2/7] xl:[grid-area:1/1/2/5]"
         icon={<Cloud className="h-4 w-4 text-faint_white" />}
         title="URL Shortener"
-        description="Using IaC, deployed on AWS"
+        description="Serverless URL shortener built with AWS and provisioned entirely with Terraform"
         backgroundImage={url_shortener}
       />
  
       <GridItem
         area="md:[grid-area:1/7/2/13] xl:[grid-area:2/1/3/5]"
-        icon={<Construction className="h-4 w-4 text-faint_white" />}
-        title="Under Construction"
-        description="still figuring out what to put here..."
+        icon={<Terminal className="h-4 w-4 text-faint_white" />}
+        title="tascii"
+        description="A fast, minimal task manager for the terminal built in Go."
+        backgroundImage={tascii}
       />
  
       <GridItem
         area="md:[grid-area:2/1/3/7] xl:[grid-area:1/5/3/8]"
         icon={<Construction className="h-4 w-4 text-faint_white" />}
         title="Under Construction"
-        description="still figuring out what to put here..."
+        description="more projects coming very soon..."
       />
  
       <GridItem
