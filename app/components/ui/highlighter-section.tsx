@@ -10,7 +10,7 @@ import { Button, buttonVariants } from "../utilities/button";
 
 import { HighlighterItem, HighlightGroup, Particles } from "./highlighter";
 
-export function Demo() {
+export function HighlighterSection() {
   const [scope, animate] = useAnimate();
 
   React.useEffect(() => {
@@ -69,7 +69,7 @@ export function Demo() {
               <div className="flex justify-center">
                 <div className="flex h-full flex-col justify-center gap-10 p-4  md:h-75 md:flex-row">
                   <div
-                    className="relative mx-auto h-[270px] w-[300px] md:h-[270px] md:w-[300px]"
+                    className="relative mx-auto h-67.5 w-75 md:h-67.5 md:w-75"
                     ref={scope}
                   >
                     <DIcons.Designali className="absolute left-1/2 top-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2" />
@@ -121,7 +121,7 @@ export function Demo() {
                     </div>
                   </div>
 
-                  <div className="-mt-20 flex h-full flex-col justify-center p-2 md:-mt-4 md:ml-10 md:w-[400px]">
+                  <div className="-mt-20 flex h-full flex-col justify-center p-2 md:-mt-4 md:ml-10 md:w-100">
                     <div className="flex flex-col items-center">
                       <h3 className="mt-6   pb-1 font-bold ">
                         <span className="text-2xl md:text-4xl">

@@ -17,8 +17,8 @@ import BackgroundBeamsSection from "./components/ui/backgroundbeams-section";
 import StaticBackgroundBeamsSection from "./components/ui/staticbackgroundbeams-section";
 import GlowingEffectSection from "./components/ui/glowingeffectgrid-section";
 
-
-import {Demo} from "./components/ui/highlighter-section"
+import {HighlighterSection} from "./components/ui/highlighter-section"
+import {Footer} from "./components/page/footer-section"
 
 
 
@@ -183,7 +183,7 @@ export default function Home() {
     <section id="contact">
       <p>contact</p>
       <div>
-        <Demo/>
+        <HighlighterSection/>
       </div>
 
     </section>
@@ -193,6 +193,14 @@ export default function Home() {
             <p>more about me </p>
 
     </section>
+
+    <footer>
+      <p>footer</p>
+        <div className="relative flex flex-col justify-end min-h-svh w-screen  h-[30vh]">
+
+        <Footer />
+		</div>
+    </footer>
 
   </>  
 

@@ -16,10 +16,11 @@ import { Input } from "../utilities/input"
 import { Label } from "../utilities/label";
 import { Bot } from "lucide-react";
 import { Textarea } from "../utilities/textarea"
-import { Spotlight } from "../ui/spotlightbg";
 import { SendButton } from "../ui/stateful-button";
 import FadeContent from "./fadeanimation";
 
+import { Spotlight } from "../ui/spotlightbg";
+import {InfiniteGrid} from "../ui/bg-infinitegrid";
 
 export function SignupForm() {
   const router = useRouter();
@@ -100,22 +101,14 @@ export function SignupForm() {
   return (
     <>
       {/* Full-page background with gradient blinds */}
-      <div className="fixed inset-0 z-0">
-            <div className="relative flex w-screen h-screen overflow-hidden rounded-md bg-black/96 antialiased md:items-center md:justify-center">
-              <div
-                className={cn(
-                  "pointer-events-none absolute inset-0 bg-size-[40px_40px] select-none",
-                  "bg-[linear-gradient(to_right,#171717_1px,transparent_1px),linear-gradient(to_bottom,#171717_1px,transparent_1px)]",
-                )}
-              />
-        
-              <Spotlight
-                className="-top-40 left-0 md:-top-20 md:left-60"
-                fill="white"
-              />
 
-            </div>
-      </div>
+              {/* Infinite grid background layer */}
+              <div className="fixed inset-0 z-0 pointer-events-none" aria-hidden="true">
+                <InfiniteGrid
+                  backgroundOnly
+                  className="h-full w-full pointer-events-none"
+                />
+              </div>
 
 
                 {/* SUCCESS ALERT */}
