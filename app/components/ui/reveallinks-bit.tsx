@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export const RevealLinks = () => {
   return (
-    <section className="grid h-full w-full place-content-center bg-transparent px-2 py-4 text-white">
+    <section className="grid h-full w-full place-content-center bg-transparent px-2 py-4">
       <FlipLink href="#">GitHub</FlipLink>
       <FlipLink href="#">Linkedin</FlipLink>
     </section>
@@ -27,12 +27,12 @@ const FlipLink = ({ children, href }: FlipLinkProps) => {
       whileHover="hovered"
       href={href}
       // text color is inherited from parent section, so no explicit color here
-      className="relative block overflow-hidden whitespace-nowrap text-4xl font-black uppercase sm:text-7xl md:text-8xl lg:text-9xl"
+      className="relative block overflow-hidden whitespace-nowrap text-3xl font-black uppercase sm:text-6xl md:text-7xl lg:text-8xl font-unbounded"
       style={{
         lineHeight: 0.75,
       }}
     >
-      <div>
+      <div >
         {children.split("").map((l, i) => (
           <motion.span
             variants={{
@@ -56,7 +56,7 @@ const FlipLink = ({ children, href }: FlipLinkProps) => {
         ))}
       </div>
       {/* Removed text-white dark:text-black so it inherits the color from the parent <a> */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 text-[#74818C]">
         {children.split("").map((l, i) => (
           <motion.span
             variants={{
