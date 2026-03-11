@@ -18,6 +18,8 @@ import StaticBackgroundBeamsSection from "./components/ui/staticbackgroundbeams-
 import GlowingEffectSection from "./components/ui/glowingeffectgrid-section";
 
 
+import {Demo} from "./components/ui/highlighter-section"
+
 
 
 
@@ -180,6 +182,10 @@ export default function Home() {
 
     <section id="contact">
       <p>contact</p>
+      <div>
+        <Demo/>
+      </div>
+
     </section>
 
 
