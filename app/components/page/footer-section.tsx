@@ -1,10 +1,9 @@
 'use client';
 import React from 'react';
-import type { ComponentProps, ReactNode } from 'react';
-import { motion, useReducedMotion } from 'motion/react';
 import { FacebookIcon, FrameIcon, GithubIcon, InstagramIcon, LinkedinIcon, YoutubeIcon } from 'lucide-react';
 
 import {RevealLinks} from "../ui/reveallinks-bit"
+import { AnimatedContainer } from '../utilities/animated-container';
 
 interface FooterLink {
 	title: string;
@@ -67,7 +66,7 @@ export function Footer() {
 			<div className="flex w-full flex-col gap-8 pl-10 xl:flex-row xl:items-start xl:gap-0">
 				{/* Left: copyright + links */}
 				<div className="flex flex-col gap-4 xl:flex-row xl:gap-8 xl:shrink-0">
-					<AnimatedContainer className="space-y-4">
+					<AnimatedContainer className="space-y-4" initialY={-8}>
 						{/* <FrameIcon className="size-8" /> */}
 						<p className="text-muted-foreground mt-8 text-sm md:mt-0">
 							© {new Date().getFullYear()} Walid IDRISSI
@@ -76,7 +75,7 @@ export function Footer() {
 
 					<div className="grid grid-cols-2 gap-8 md:grid-cols-4">
 						{footerLinks.map((section, index) => (
-							<AnimatedContainer key={section.label} delay={0.1 + index * 0.1}>
+							<AnimatedContainer key={section.label} delay={0.1 + index * 0.1} initialY={-8}>
 								<div className="mb-10 md:mb-0">
 									<h2 className="text-md">{section.label}</h2>
 									<ul className="text-muted-foreground mt-4 space-y-2 text-sm">
@@ -101,36 +100,10 @@ export function Footer() {
 				</div>
 
 				{/* Right: RevealLinks — beside links on xl, below on mobile */}
-				<AnimatedContainer className="min-w-0 overflow-hidden xl:flex-1">
+				<AnimatedContainer className="min-w-0 overflow-hidden xl:flex-1" initialY={-8}>
 					<RevealLinks />
 				</AnimatedContainer>
 			</div>
 		</footer>
-	);
-};
-
-type ViewAnimationProps = {
-	delay?: number;
-	className?: ComponentProps<typeof motion.div>['className'];
-	children: ReactNode;
-};
-
-function AnimatedContainer({ className, delay = 0.1, children }: ViewAnimationProps) {
-	const shouldReduceMotion = useReducedMotion();
-
-	if (shouldReduceMotion) {
-		return children;
-	}
-
-	return (
-		<motion.div
-			initial={{ filter: 'blur(4px)', translateY: -8, opacity: 0 }}
-			whileInView={{ filter: 'blur(0px)', translateY: 0, opacity: 1 }}
-			viewport={{ once: true }}
-			transition={{ delay, duration: 0.8 }}
-			className={className}
-		>
-			{children}
-		</motion.div>
 	);
 };
