@@ -3,7 +3,11 @@
  
 
 import { Box, Lock, Search, Settings, Sparkles , CircleQuestionMark , Construction , Cloud , Terminal} from "lucide-react";
+
 import { GlowingEffect } from "../ui/glowingeffectgrid-bit";
+
+import { AnimatedContainer } from "../utilities/animated-container";
+
 import tailwindConfig from "@/tailwind.config";
 const url_shortener = "/project-url-shortener.png";
 const tascii = "/project-tascii.png"
@@ -18,36 +22,49 @@ return (
         title="URL Shortener"
         description="Serverless URL shortener built with AWS and provisioned entirely with Terraform"
         backgroundImage={url_shortener}
+        duration={1.8}
+        delay={0.25}
       />
  
+
       <GridItem
         area="md:[grid-area:1/7/2/13] xl:[grid-area:2/1/3/5]"
         icon={<Terminal className="h-4 w-4 text-faint_white" />}
         title="tascii"
         description="A fast, minimal task manager for the terminal built in Go."
         backgroundImage={tascii}
+        duration={1.8}
+        delay={1}
       />
- 
+
       <GridItem
         area="md:[grid-area:2/1/3/7] xl:[grid-area:1/5/3/8]"
         icon={<Construction className="h-4 w-4 text-faint_white" />}
         title="Under Construction"
         description="more projects coming very soon..."
+        duration={1.8}
+        delay={1.5}
       />
- 
+
+
       <GridItem
         area="md:[grid-area:2/7/3/13] xl:[grid-area:1/8/2/13]"
         icon={<Construction className="h-4 w-4 text-faint_white" />}
         title="Under Construction"
         description="still figuring out what to put here..."
+        duration={1.8}
+        delay={2}
       />
- 
+        
+
       <GridItem
         area="md:[grid-area:3/1/4/13] xl:[grid-area:2/8/3/13]"
         icon={<Construction className="h-4 w-4 text-faint_white" />}
         title="Under Construction"
         description="still figuring out what to put here..."
-      />      
+        duration={1.8}
+        delay={2.5}
+      />
 
     </ul>
   );
@@ -58,26 +75,35 @@ interface GridItemProps {
   icon: React.ReactNode;
   title: string;
   description: React.ReactNode;
-  backgroundImage?: string; // <-- new optional prop
+  backgroundImage?: string; 
+  delay?: number;
+  duration?: number;
 }
  
-const GridItem = ({ area, icon, title, description, backgroundImage }: GridItemProps) => {
+const GridItem = ({
+  area,
+  icon,
+  title,
+  description,
+  backgroundImage,
+  delay = 0,
+  duration = 1,
+}: GridItemProps) => {
   return (
     <li className={`min-h-56 list-none ${area}`}>
-      <div className="group relative h-full rounded-2xl border p-2 md:rounded-3xl md:p-3">
-        <GlowingEffect
-          blur={0.5}
-          borderWidth={4}
-          spread={67}
-          glow={true}
-          disabled={false}
-          proximity={34}
-          inactiveZone={0.01}
-          movementDuration={3}
-
-        //   variant="white"
-        />
-        <div className="border-0.75 relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl p-6 md:p-6 dark:shadow-[0px_0px_27px_0px_#2D2D2D]">
+      <AnimatedContainer delay={delay} duration={duration} className="h-full" initialY={10}>
+        <div className="group relative h-full rounded-2xl border p-2 md:rounded-3xl md:p-3">
+          <GlowingEffect
+            blur={0.5}
+            borderWidth={4}
+            spread={67}
+            glow={true}
+            disabled={false}
+            proximity={34}
+            inactiveZone={0.01}
+            movementDuration={3}
+          />
+          <div className="border-0.75 relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl p-6 md:p-6 dark:shadow-[0px_0px_27px_0px_#2D2D2D]">
 
           {/* Background image layer — sits behind everything */}
           {backgroundImage && (
@@ -121,9 +147,9 @@ const GridItem = ({ area, icon, title, description, backgroundImage }: GridItemP
               </h2>
             </div>
           </div>
-
-        </div>
+          </div>
       </div>
+        </AnimatedContainer>
     </li>
   );
 };
