@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import "./globals.css";
 import { ibmFont, unboundedFont , latoFont } from "./fonts";
-import SmoothScroll from "./components/page/SmoothScroll";
+import SmoothScroll from "./components/utilities/SmoothScroll";
 
 export const metadata: Metadata = {
   title: "Walid Idrissi - Software Engineering Student",
