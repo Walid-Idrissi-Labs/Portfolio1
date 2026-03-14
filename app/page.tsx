@@ -49,9 +49,9 @@ export default function Home() {
               logoAlt="Walid"
               items={[
                 { label: 'Home', href: '#home' },
-                { label: 'Overview', href: '#overview' },
+                { label: 'About', href: '#about' },
                 { label: 'Projects', href: '#projects' },
-                { label: 'Contact', href: 'Contact' }
+                { label: 'Contact', href: '#contact' }
               ]}
               activeHref="/"
               className="custom-nav"
@@ -96,7 +96,7 @@ export default function Home() {
            <ScrollRevealSection /> 
       </div>
     </section> */}
-    <section id="overview" className="min-h-[95vh] pt-4 md:pt-6 w-full px-4 md:px-10 lg:px-15                   outline-red-500 ">
+    <section id="about" className="min-h-[95vh] pt-4 md:pt-6 w-full px-4 md:px-10 lg:px-15                   outline-red-500 ">
             <div className='z-10 relative w-full h-full flex flex-col items-center justify-center               outline-green-500 '>
               <BackgroundBeamsSection  />
             
@@ -140,7 +140,7 @@ export default function Home() {
     
 
       {/* LOGO LOOP SECTION             */}
-    <section id="skills" className="no-scrollbar mt-30">
+    <section id="skills" className="no-scrollbar mt-15">
 
           <div style={{ height: '110px', position: 'relative', overflow: 'hidden'   }}>
       {/* Basic horizontal loop */}
@@ -151,9 +151,9 @@ export default function Home() {
 
 
         {/* PROJECTS */}
-        <div className='min-h-[95vh] pt-4 md:pt-6 w-full px-4 md:px-10 lg:px-15  outline-green-500 '>
+        <div className='min-h-[55vh] pt-4 md:pt-6 w-full px-4 md:px-6 lg:px-8 flex flex-col justify-center items-center  outline-green-500 '>
         
-                <div  className="relative w-full flex justify-center md:justify-end text-center md:text-left text-[3rem] sm:text-[3.6rem] md:text-[3.8rem] lg:text-[4.4] xl:text-[4.7rem] font-unbounded z-1   outline-red-600">
+                <div  className="relative w-[60vw] md:w-full flex justify-center md:justify-end text-center md:text-left text-[3rem] sm:text-[3.6rem] md:text-[3.8rem] lg:text-[4.4] xl:text-[4.7rem] font-unbounded z-1   outline-red-600">
               {/* <h1 className=" ">Overview</h1> */}
               <GradientText
                   colors={
@@ -161,11 +161,12 @@ export default function Home() {
                       tailwindConfig.theme.extend.colors.slate,
                       tailwindConfig.theme.extend.colors.beige_bright,
                     ]}
-                    animationSpeed={3}
+                    animationSpeed={4}
                     showBorder={true}
                     className="custom-class"
                     >
                   Project Catalogue
+                  
               </GradientText>
           </div>
 
@@ -180,16 +181,35 @@ export default function Home() {
         </div>
 
 
-    <section id="contact">
-      <p>contact</p>
-      <div>
-        <HighlighterSection/>
-      </div>
+                  
+                  
 
+    <section id="contact">
+      <div className='min-h-[15vh] pt-4 md:pt-6 w-full px-7 md:px-10 lg:px-15 flex flex-col justify-center items-center   outline-green-500 '>
+          <div  className="relative w-full flex justify-center md:justify-start text-center md:text-left text-[3rem] sm:text-[3.6rem] md:text-[3.8rem] lg:text-[4.4] xl:text-[4.7rem] font-unbounded z-1   outline-red-600">
+              {/* <h1 className=" ">Overview</h1> */}
+              <GradientText
+                  colors={
+                    [ tailwindConfig.theme.extend.colors.beige_dark,
+                      tailwindConfig.theme.extend.colors.slate,
+                      tailwindConfig.theme.extend.colors.beige_bright,
+                    ]}
+                    animationSpeed={4}
+                    showBorder={true}
+                    className="custom-class"
+                    >
+                  Get in Touch
+                  
+              </GradientText>
+          </div>
+          <div className=' flex flex-col my-20 md:my-5 lg:my-8 mx-auto justify-center items-center h-[40vh] w-[90vw]  outline-red-500 '>
+            <HighlighterSection/>
+          </div>
+      </div>
     </section>
 
 
-    <section>
+    <section id="info">
             <p>more about me </p>
 
     </section>
@@ -197,7 +217,6 @@ export default function Home() {
     <footer>
       <p>footer</p>
         <div className="relative flex flex-col justify-end min-h-svh w-screen  h-[30vh]">
-
         <Footer />
 		</div>
     </footer>

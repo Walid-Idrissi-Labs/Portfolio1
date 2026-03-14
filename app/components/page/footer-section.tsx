@@ -41,9 +41,10 @@ const footerLinks: FooterSection[] = [
 		label: 'Navigation Links',
 		links: [
 			{ title: 'Home', href: '#' },
-			{ title: 'Overview', href: '#overview' },
+			{ title: 'About', href: '#about' },
 			{ title: 'Projects', href: '#projects' },
 			{ title: 'Contact', href: '#contact' },
+			{ title: 'Skills', href: '#skills' },
 		],
 	},
 	{
@@ -60,7 +61,7 @@ const footerLinks: FooterSection[] = [
 export function Footer() {
 	return (
 		// <footer className="md:rounded-t-6xl relative w-full max-w-6xl mx-auto flex flex-col items-center justify-center rounded-t-4xl border-t bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/8%),transparent)] px-6 py-12 lg:py-16">
-		<footer className="md:rounded-t-6xl relative w-full l mx-auto flex flex-col items-center justify-center rounded-t-4xl border-t bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/8%),transparent)] bg-[#74818C]/5 px-10 py-12 lg:py-16">
+		<footer className="md:rounded-t-6xl relative w-full l mx-auto flex flex-col items-center justify-center rounded-t-4xl border-t bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/8%),transparent)] bg-[#F2E6D8]/5 px-10 py-12 lg:py-16">
 			<div className="bg-foreground/20 absolute top-0 right-1/2 left-1/2 h-px w-1/3 -translate-x-1/2 -translate-y-1/2 rounded-full blur" />
 
 			<div className="flex w-full flex-col gap-8 pl-10 xl:flex-row xl:items-start xl:gap-0">

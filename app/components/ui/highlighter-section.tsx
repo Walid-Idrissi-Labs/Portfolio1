@@ -6,9 +6,19 @@ import { cn } from "../../lib/utils";
 import { DIcons } from "dicons";
 import { useAnimate } from "framer-motion";
 
+import { motion, useReducedMotion } from 'motion/react';
+import type { ComponentProps, ReactNode } from 'react';
+
+import { Github } from "lucide-react";
+
 import { Button, buttonVariants } from "../utilities/button";
 
 import { HighlighterItem, HighlightGroup, Particles } from "./highlighter";
+
+
+
+
+
 
 export function HighlighterSection() {
   const [scope, animate] = useAnimate();
@@ -52,7 +62,11 @@ export function HighlighterSection() {
     );
   }, [animate]);
   return (
+
     <section className="relative mx-auto mb-20 mt-6 max-w-5xl  ">
+      <AnimatedContainer>
+
+      
       <HighlightGroup className="group h-full">
         <div
           className="group/item h-full md:col-span-6 lg:col-span-12"
@@ -73,30 +87,37 @@ export function HighlighterSection() {
                     ref={scope}
                   >
                     <DIcons.Designali className="absolute left-1/2 top-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2" />
+                    {/* ////////////////////////////////////////////////////////////////////////// */}
                     <div
                       id="next-js"
                       className="absolute bottom-12 left-14 rounded-3xl border  px-2 py-1.5 text-xs opacity-50 border-slate-600 bg-slate-800"
                     >
                       UI-UX
                     </div>
+                  {/* ////////////////////////////////////////////////////////////////////////// */}
                     <div
                       id="react-js"
                       className="absolute left-2 top-20 rounded-3xl border  px-2 py-1.5 text-xs opacity-50 border-slate-600 bg-slate-800"
                     >
-                      System Design
+                      Full-Stack Dev
                     </div>
+                    {/* ////////////////////////////////////////////////////////////////////////// */}
                     <div
                       id="typescript"
                       className="absolute bottom-20 right-1 rounded-3xl border  px-2 py-1.5 text-xs opacity-50 border-slate-600 bg-slate-800"
                     >
-                      Web Applications
+                      Networking
                     </div>
+                    {/* ////////////////////////////////////////////////////////////////////////// */}
                     <div
                       id="javascript"
                       className="absolute right-12 top-10 rounded-3xl border  px-2 py-1.5 text-xs opacity-50 border-slate-600 bg-slate-800"
-                    >
-                      Cloud Computing
+                      >
+                      AWS & Cloud
                     </div>
+                    {/* ////////////////////////////////////////////////////////////////////////// */}
+
+                    {/* ////////////////////////////////////////////////////////////////////////// */}
 
                     <div id="pointer" className="absolute">
                       <svg
@@ -125,52 +146,75 @@ export function HighlighterSection() {
                     <div className="flex flex-col items-center">
                       <h3 className="mt-6   pb-1 font-bold ">
                         <span className="text-2xl md:text-4xl">
-                          Feel free to Reach Out! 
+                          Open to Opportunities & Collaboration 
                         </span>
                       </h3>
                     </div>
-                    <p className="mb-4 text-slate-400">
-                        Always available to respond. 
+                    <p className="mb-4 text-slate-400 my-1 ">
+                      Interested in working together, discussing an idea, or exploring an opportunity? I'd be glad to connect.
                     </p>
-                    <div className="flex flex-wrap gap-2">
-                      <Link
-                        href={"https://cal.com/aliimam/designali"}
-                        target="_blank"
-                      >
-                        <Button> Contact Me </Button>
-                      </Link>
-                      <Link
-                        href="/Contact"
-                        // href="mailto:contact@designali.in"
-                        // target="_blank"
-                        className={cn(
-                          buttonVariants({
-                            variant: "outline",
-                            size: "icon",
-                          }),
-                        )}
-                      >
-                        <span className="flex items-center gap-1">
-                          <DIcons.Mail strokeWidth={1} className="h-5 w-5" />
-                        </span>
-                      </Link>
-                      <Link
-                        href="https://wa.me/917678432186"
-                        target="_blank"
-                        className={cn(
-                          buttonVariants({
-                            variant: "outline",
-                            size: "icon",
-                          }),
-                        )}
-                      >
-                        <span className="flex items-center gap-1">
-                          <DIcons.WhatsApp
-                            strokeWidth={1}
-                            className="h-4 w-4"
-                          />
-                        </span>
-                      </Link>
+                    <div className="flex flex-wrap gap-2 justify-center">
+                            <Link
+                              href={"mailto:walid.idrissi.labs@gmail.com"}
+
+                              target="_blank"
+                              className={cn(
+                                buttonVariants({
+                                  variant: "outline",
+                                  size: "icon",
+                                }),
+                              )}
+                            >
+                              <span className="flex items-center gap-1">
+                                <DIcons.Mail strokeWidth={1} className="h-5 w-5" />
+                              </span>
+                            </Link>
+
+                            <Link
+                              href={"https://linkedin.com/in/walid-idrissi-labkhati"}
+
+                              target="_blank"
+                              className={cn(
+                                buttonVariants({
+                                  variant: "outline",
+                                  size: "icon",
+                                }),
+                              )}
+                            >
+                              <span className="flex items-center gap-1">
+                                <DIcons.LinkedIn strokeWidth={1} className="h-5 w-5" />
+                              </span>
+                            </Link>
+
+                            <Link
+                              href={"https://github.com/walid-idrissi-labs"}
+
+                              target="_blank"
+                              className={cn(
+                                buttonVariants({
+                                  variant: "outline",
+                                  size: "icon",
+                                }),
+                              )}
+                            >
+                              <span className="flex items-center gap-1">
+                                <Github strokeWidth={1} className="h-5 w-5" />
+                              </span>
+                            </Link>
+
+
+                            <Link
+                              href="/Contact"
+                              target="_blank"
+                              
+                            >
+                              <Button> Contact Me
+                                <span> 
+                                  <DIcons.ArrowUpRight strokeWidth={1} className="h-4 w-4" />  
+                                </span> 
+                              </Button>
+                            </Link>
+
                     </div>
                   </div>
                 </div>
@@ -179,6 +223,38 @@ export function HighlighterSection() {
           </HighlighterItem>
         </div>
       </HighlightGroup>
+      </AnimatedContainer>
     </section>
   );
+};
+
+
+
+
+
+
+type ViewAnimationProps = {
+  delay?: number;
+  className?: ComponentProps<typeof motion.div>['className'];
+  children: ReactNode;
+};
+
+function AnimatedContainer({ className, delay = 0.1, children }: ViewAnimationProps) {
+	const shouldReduceMotion = useReducedMotion();
+
+	if (shouldReduceMotion) {
+		return children;
+	}
+
+	return (
+		<motion.div
+			initial={{ filter: 'blur(4px)', translateY: -8, opacity: 0 }}
+			whileInView={{ filter: 'blur(0px)', translateY: 0, opacity: 1 }}
+			viewport={{ once: true }}
+			transition={{ delay, duration: 0.8 }}
+			className={className}
+		>
+			{children}
+		</motion.div>
+	);
 };
