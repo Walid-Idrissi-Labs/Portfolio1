@@ -4,9 +4,8 @@ import Image from "next/image";
 
 
 
-import AnimatedList from "./components/AnimatedList-bit";
+
 import AuroraSection from "./components/ui/aurora-section";
-import LightRaysSection from "./components/ui/lightrays-section";
 import LogoLoopSection from "./components/ui/logoloop-section";
 import SplitTextSection from "./components/ui/splittext-section";
 import PillNav from "./components/page/pillnav-bit";
@@ -16,11 +15,12 @@ import {TextGenerateEffect} from "./components/ui/textgenerateeffect-bit";
 import BackgroundBeamsSection from "./components/ui/backgroundbeams-section";
 import StaticBackgroundBeamsSection from "./components/ui/staticbackgroundbeams-section";
 import GlowingEffectSection from "./components/ui/glowingeffectgrid-section";
+import { ScrollText } from "./components/ui/scrolltext";
 
 import {HighlighterSection} from "./components/ui/highlighter-section"
 import {Footer} from "./components/page/footer-section"
 
-
+import {AnimatedContainer} from "./components/utilities/animated-container";
 
 
 import { image } from "motion/react-client";
@@ -186,37 +186,67 @@ export default function Home() {
 
     <section id="contact">
       <div className='min-h-[15vh] pt-4 md:pt-6 w-full px-7 md:px-10 lg:px-15 flex flex-col justify-center items-center   outline-green-500 '>
-          <div  className="relative w-full flex justify-center md:justify-start text-center md:text-left text-[3rem] sm:text-[3.6rem] md:text-[3.8rem] lg:text-[4.4] xl:text-[4.7rem] font-unbounded z-1   outline-red-600">
-              {/* <h1 className=" ">Overview</h1> */}
-              <GradientText
-                  colors={
-                    [ tailwindConfig.theme.extend.colors.beige_dark,
-                      tailwindConfig.theme.extend.colors.slate,
-                      tailwindConfig.theme.extend.colors.beige_bright,
-                    ]}
-                    animationSpeed={4}
-                    showBorder={true}
-                    className="custom-class"
-                    >
-                  Get in Touch
-                  
-              </GradientText>
-          </div>
-          <div className=' flex flex-col my-20 md:my-5 lg:my-8 mx-auto justify-center items-center h-[40vh] w-[90vw]  outline-red-500 '>
-            <HighlighterSection/>
-          </div>
+            <div  className="relative w-full flex justify-center md:justify-start text-center md:text-left text-[3rem] sm:text-[3.6rem] md:text-[3.8rem] lg:text-[4.4] xl:text-[4.7rem] font-unbounded z-1   outline-red-600">
+                {/* <h1 className=" ">Overview</h1> */}
+                <GradientText
+                    colors={
+                      [ tailwindConfig.theme.extend.colors.beige_dark,
+                        tailwindConfig.theme.extend.colors.slate,
+                        tailwindConfig.theme.extend.colors.beige_bright,
+                      ]}
+                      animationSpeed={4}
+                      showBorder={true}
+                      className="custom-class"
+                      >
+                    Get in Touch
+                    
+                </GradientText>
+            </div>
+
+            <div className=' flex flex-col my-20 md:my-5 lg:my-8 mx-auto justify-center items-center h-[40vh] w-[90vw]  outline-red-500 '>
+              <HighlighterSection/>
+            </div>
       </div>
     </section>
 
 
     <section id="info">
             <p>more about me </p>
+                  <div className='min-h-[15vh] pt-4 md:pt-6 w-full px-7 md:px-10 lg:px-15 flex flex-col justify-center items-center   outline-green-500 '>
+            <div  className="relative w-full flex justify-center md:justify-end text-center md:text-left text-[3rem] sm:text-[3.6rem] md:text-[3.8rem] lg:text-[4.4] xl:text-[4.7rem] font-unbounded z-1   outline-red-600">
+                {/* <h1 className=" ">Overview</h1> */}
+                <GradientText
+                    colors={
+                      [ tailwindConfig.theme.extend.colors.beige_dark,
+                        tailwindConfig.theme.extend.colors.slate,
+                        tailwindConfig.theme.extend.colors.beige_bright,
+                      ]}
+                      animationSpeed={4}
+                      showBorder={true}
+                      className="custom-class"
+                      >
+                    More About me
+                    
+                </GradientText>
+            </div>
+            
+            <div className='  my-20 md:my-5 lg:my-8 mx-auto  md:w-[70vw] outline-red-500 '>
+                  <AnimatedContainer>
+                        <ScrollText text={`I'm Walid, a software engineering student at Cadi Ayyad University in Marrakech, currently in the engineering cycle specializing in computer networks and information systems.
+                                  I work across the stack. On the frontend I focus on clean, functional interfaces. On the backend and infrastructure side, I've spent a lot of time learning Cloud Computing Essentials with AWS, building and deploying real projects using serverless architecture, cloud storage, and infrastructure as code. I enjoy both sides and I've found that working across them makes me a better engineer overall.
+                                  Outside of university I invest a lot of time in self-directed learning. I've completed coursework through Cisco Networking Academy and AWS Skill Builder and AWS Educate, covering networking fundamentals, cloud architecture, and core AWS services. I'm currently preparing for the AWS Certified Cloud Practitioner certification, expected in 2027. I've also done coursework  in machine learning, Python, SQL, and project management through Udemy.
+                                  I'm at an early stage in my career, but I take it seriously. The projects here are things I built out of genuine interest, and I'm always working on something new.`} 
+                                  lineBreakSpacing={15}
+                                  />
+                    </AnimatedContainer>
+            </div>
+      </div>
 
     </section>
 
     <footer>
-      <p>footer</p>
-        <div className="relative flex flex-col justify-end min-h-svh w-screen  h-[30vh]">
+
+        <div className="relative flex flex-col justify-end pt-30 mt-60 w-screen  h-[30vh]">
         <Footer />
 		</div>
     </footer>

@@ -181,8 +181,8 @@ export function HighlighterSection() {
                           </span>
                         </Link>
 
-                        <Link href="/Contact" target="_blank">
-                          <Button>
+                        <Link href="/Contact" target="_blank" >
+                          <Button className="cursor-pointer">
                             Contact Me
                             <span>
                               <DIcons.ArrowUpRight strokeWidth={1} className="h-4 w-4" />
