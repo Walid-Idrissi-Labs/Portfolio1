@@ -77,7 +77,7 @@ export function AccordionSection() {
       <Accordion type="single" collapsible className="w-full">
         {items.map((item) => (
           <AccordionItem value={item.id} key={item.id} className="last:border-b">
-            <AccordionTrigger className="cursor-pointer overflow-hidden pl-6 text-left duration-200 hover:no-underline -space-y-5 data-[state=open]:space-y-0 md:pl-14 [&>svg]:hidden [&_h1]:text-foreground/20 [&_h1]:transition-colors [&_h1]:duration-200 [&_p]:text-faint_white/75 [&_p]:transition-colors [&_p]:duration-200 data-[state=open]:[&_h1]:text-beige_bright data-[state=open]:[&_p]:text-beige_bright/90">
+            <AccordionTrigger className="cursor-pointer overflow-hidden pl-6 text-left duration-200 hover:no-underline -space-y-5 data-[state=open]:space-y-0 md:pl-14 [&>svg]:hidden [&_h1]:text-[#d9d9d9] [&_h1]:transition-colors [&_h1]:duration-200 [&_p]:text-[#d9d9d9] [&_p]:transition-colors [&_p]:duration-200 data-[state=open]:[&_h1]:text-beige_bright data-[state=open]:[&_p]:text-beige_bright/90">
               <div className="flex flex-1 items-start gap-3 md:gap-5">
                 <p className="pt-1 text-sm md:text-base lg:text-lg">{item.id}</p>
                 <h1
