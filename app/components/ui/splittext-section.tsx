@@ -27,8 +27,8 @@ export default function SplitTextSection() {
             onLetterAnimationComplete={() => null}
         >
             <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2">
-                <span className="whitespace-nowrap">Less noise.</span>
-                <span className="whitespace-nowrap font-ibm italic text-slate">More signal</span>
+                <span className="whitespace-nowrap">Shaping What </span>
+                <span className="whitespace-nowrap font-ibm italic text-slate">Comes Next.</span>
             </div>
         </SplitText>
 

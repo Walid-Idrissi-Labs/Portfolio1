@@ -62,7 +62,7 @@ const items = [
             </p>
           </div>
 
-          <div className="flex h-12 w-12 items-center justify-center rounded-full border border-beige_bright/35 bg-beige_bright/10 transition-transform duration-300 ease-out group-hover:translate-y-2  md:h-14 md:w-14">
+          <div className="flex h-12 w-12 items-center justify-center rounded-full border border-beige_bright/35 bg-beige_bright/10 transition-transform duration-300 ease-out group-hover:scale-110  md:h-14 md:w-14">
             <CircleArrowDown className="h-5 w-5 md:h-6 md:w-6" />
           </div>
         </a>
