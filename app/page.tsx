@@ -238,7 +238,7 @@ export default function Home() {
                     tailwindConfig.theme.extend.colors.slate,
                     tailwindConfig.theme.extend.colors.beige_bright,
                   ]}
-                  animationSpeed={4}
+                  animationSpeed={2}
                   showBorder={true}
                   className="custom-class"
                   >

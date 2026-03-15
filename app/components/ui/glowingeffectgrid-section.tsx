@@ -21,6 +21,7 @@ return (
         icon={<Cloud className="h-4 w-4 text-faint_white" />}
         title="URL Shortener"
         description="Serverless URL shortener built with AWS and provisioned entirely with Terraform"
+        href="https://github.com/walid-idrissi-labs/url-shortener"
         backgroundImage={url_shortener}
         duration={1.8}
         delay={0.25}
@@ -32,6 +33,7 @@ return (
         icon={<Terminal className="h-4 w-4 text-faint_white" />}
         title="tascii"
         description="A fast, minimal task manager for the terminal built in Go."
+        href="https://github.com/walid-idrissi-labs/tascii"
         backgroundImage={tascii}
         duration={1.8}
         delay={1}
@@ -42,6 +44,7 @@ return (
         icon={<Construction className="h-4 w-4 text-faint_white" />}
         title="Under Construction"
         description="more projects coming very soon..."
+        href="https://github.com/walid-idrissi-labs/"
         duration={1.8}
         delay={1.5}
       />
@@ -52,6 +55,7 @@ return (
         icon={<Construction className="h-4 w-4 text-faint_white" />}
         title="Under Construction"
         description="still figuring out what to put here..."
+        href="https://github.com/walid-idrissi-labs/"
         duration={1.8}
         delay={2}
       />
@@ -62,6 +66,7 @@ return (
         icon={<Construction className="h-4 w-4 text-faint_white" />}
         title="Under Construction"
         description="still figuring out what to put here..."
+        href="https://github.com/walid-idrissi-labs/"
         duration={1.8}
         delay={2.5}
       />
@@ -75,6 +80,7 @@ interface GridItemProps {
   icon: React.ReactNode;
   title: string;
   description: React.ReactNode;
+  href: string;
   backgroundImage?: string; 
   delay?: number;
   duration?: number;
@@ -85,6 +91,7 @@ const GridItem = ({
   icon,
   title,
   description,
+  href,
   backgroundImage,
   delay = 0,
   duration = 1,
@@ -92,7 +99,12 @@ const GridItem = ({
   return (
     <li className={`min-h-56 list-none ${area}`}>
       <AnimatedContainer delay={delay} duration={duration} className="h-full" initialY={10}>
-        <div className="group relative h-full rounded-2xl border p-2 md:rounded-3xl md:p-3">
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group relative block h-full rounded-2xl border p-2 md:rounded-3xl md:p-3"
+        >
           <GlowingEffect
             blur={0.5}
             borderWidth={4}
@@ -148,7 +160,7 @@ const GridItem = ({
             </div>
           </div>
           </div>
-      </div>
+      </a>
         </AnimatedContainer>
     </li>
   );
