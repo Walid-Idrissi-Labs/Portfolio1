@@ -10,8 +10,9 @@ import { Github } from "lucide-react";
 import { Button, buttonVariants } from "../utilities/button";
 
 import { AnimatedContainer } from "../utilities/animated-container";
+import { HoverBorderGradient } from "../utilities/hoverbordergradient";
 
-import { HighlighterItem, HighlightGroup, Particles } from "./highlighter";
+import { HighlightGroup, Particles } from "./highlighter";
 
 export function HighlighterSection() {
   const [scope, animate] = useAnimate();
@@ -63,8 +64,12 @@ export function HighlighterSection() {
             className="group/item h-full md:col-span-6 lg:col-span-12"
             data-aos="fade-down"
           >
-            <HighlighterItem className="rounded-3xl p-6">
-              <div className="relative z-20 h-full overflow-hidden rounded-3xl border border-slate-200 bg-whiteborder-slate-800 bg-black">
+            <HoverBorderGradient
+              as="div"
+              containerClassName="rounded-3xl w-full h-full"
+              className="p-0 w-full h-full bg-transparent!"
+            >
+              <div className="relative h-full overflow-hidden rounded-3xl bg-black">
                 <Particles
                   className="absolute inset-0 -z-10 opacity-10 transition-opacity duration-1000 ease-in-out group-hover/item:opacity-100"
                   quantity={200}
@@ -194,7 +199,7 @@ export function HighlighterSection() {
                   </div>
                 </div>
               </div>
-            </HighlighterItem>
+            </HoverBorderGradient>
           </div>
         </HighlightGroup>
       </AnimatedContainer>
