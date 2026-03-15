@@ -80,25 +80,25 @@ export function HighlighterSection() {
                       <DIcons.Designali className="absolute left-1/2 top-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2" />
                       <div
                         id="next-js"
-                        className="absolute bottom-12 left-14 rounded-3xl border border-slate-600 bg-slate-800 px-2 py-1.5 text-xs opacity-50"
+                        className="absolute font-ibm bottom-12 left-14 rounded-3xl border border-slate-600 bg-slate-800 px-2 py-1.5 text-xs opacity-50"
                       >
                         UI-UX
                       </div>
                       <div
                         id="react-js"
-                        className="absolute left-2 top-20 rounded-3xl border border-slate-600 bg-slate-800 px-2 py-1.5 text-xs opacity-50"
+                        className="absolute font-ibm left-2 top-20 rounded-3xl border border-slate-600 bg-slate-800 px-2 py-1.5 text-xs opacity-50"
                       >
                         Full-Stack Dev
                       </div>
                       <div
                         id="typescript"
-                        className="absolute bottom-20 right-1 rounded-3xl border border-slate-600 bg-slate-800 px-2 py-1.5 text-xs opacity-50"
+                        className="absolute font-ibm bottom-20 right-1 rounded-3xl border border-slate-600 bg-slate-800 px-2 py-1.5 text-xs opacity-50"
                       >
                         Networking
                       </div>
                       <div
                         id="javascript"
-                        className="absolute right-12 top-10 rounded-3xl border border-slate-600 bg-slate-800 px-2 py-1.5 text-xs opacity-50"
+                        className="absolute font-ibm right-12 top-10 rounded-3xl border border-slate-600 bg-slate-800 px-2 py-1.5 text-xs opacity-50"
                       >
                         AWS & Cloud
                       </div>
@@ -126,12 +126,12 @@ export function HighlighterSection() {
                     <div className="-mt-20 flex h-full flex-col justify-center p-2 md:-mt-4 md:ml-10 md:w-100">
                       <div className="flex flex-col items-center">
                         <h3 className="mt-6 pb-1 font-bold">
-                          <span className="text-2xl md:text-4xl">
+                          <span className="text-2xl md:text-4xl font-unbounded font-medium ">
                             Open to Opportunities & Collaboration
                           </span>
                         </h3>
                       </div>
-                      <p className="my-1 mb-4 text-slate-400">
+                      <p className="my-1 mb-4 text-slate-400 font-unbounded font-light">
                         Interested in working together, discussing an idea, or
                         exploring an opportunity? I'd be glad to connect.
                       </p>
