@@ -16,6 +16,7 @@ import BackgroundBeamsSection from "./components/ui/backgroundbeams-section";
 import StaticBackgroundBeamsSection from "./components/ui/staticbackgroundbeams-section";
 import GlowingEffectSection from "./components/ui/glowingeffectgrid-section";
 import { ScrollText } from "./components/ui/scrolltext";
+import { AccordionSection } from "./components/ui/accordion-items";
 
 import {HighlighterSection} from "./components/ui/highlighter-section"
 import { ClipPathLinks } from './components/ui/skils-clippathlinks';
@@ -25,6 +26,7 @@ import {AnimatedContainer} from "./components/utilities/animated-container";
 
 
 import { image } from "motion/react-client";
+import { Accordion } from 'radix-ui';
 
 const walid_1 = "/walid_memoji_face1.png";
 const walid_2 = "/walid_memoji_facewmac.png";
@@ -108,7 +110,7 @@ export default function Home() {
     <section  className=" z-1 flex justify-center items-center h-full w-full mt-3 md:mt-4  outline-cyan-500">
 
 
-      <div className="flex flex-col gap-10 mx-auto w-full md:flex-row px-2 sm:px-6 md:px-10 py-10   outline-purple-600">
+      {/* <div className="flex flex-col gap-10 mx-auto w-full md:flex-row px-2 sm:px-6 md:px-10 py-10  outline outline-purple-600">
           <div className="flex-1 flex items-center text-[3rem]   outline-amber-600">
               <div className='flex justify-center items-center pb-0 outline-green-500 w-full'>
                   <TextGenerateEffect 
@@ -120,6 +122,11 @@ export default function Home() {
               <ProfileCardSection/>
             </div>
           </div>
+      </div> */}
+      <div className="flex flex-col gap-10 mx-auto w-full md:flex-row px-2 sm:px-6 md:px-10 py-40 outline  outline-purple-600">
+        <AnimatedContainer duration={2} initialY={100}>
+          <AccordionSection />
+        </AnimatedContainer>
       </div>
     </section>
     </div>
@@ -220,7 +227,10 @@ export default function Home() {
             </div>
 
             <div className="mx-auto my-15 py-10 flex w-[90vw] items-center justify-center px-2 md:px-4  outline-red-500">
+
+              
               <AnimatedContainer duration={1.8} className="w-full ">
+
                     <ClipPathLinks 
                       colors={{
                         containerBorder: "border-border/80",
@@ -234,7 +244,9 @@ export default function Home() {
                       }}
                     />
               </AnimatedContainer>
-            </div>
+              
+              </div>
+
   </section>
                     
 
