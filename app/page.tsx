@@ -211,7 +211,6 @@ export default function Home() {
 
 
     <section id="info">
-            <p>more about me </p>
                   <div className='min-h-[15vh] pt-4 md:pt-6 w-full px-7 md:px-10 lg:px-15 flex flex-col justify-center items-center   outline-green-500 '>
             <div  className="relative w-full flex justify-center md:justify-end text-center md:text-left text-[3rem] sm:text-[3.6rem] md:text-[3.8rem] lg:text-[4.4] xl:text-[4.7rem] font-unbounded z-1   outline-red-600">
                 {/* <h1 className=" ">Overview</h1> */}
