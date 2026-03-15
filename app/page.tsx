@@ -86,7 +86,7 @@ export default function Home() {
 
 
 
-<section id="about" className="min-h-[95vh] pt-4 md:pt-6 w-full px-4 md:px-10 lg:px-15                   outline-red-500 ">
+<section id="about" className="pt-4 md:min-h-[95vh] md:pt-6 w-full px-4 md:px-10 lg:px-15                   outline-red-500 ">
         <div className='z-10 relative w-full h-full flex flex-col items-center justify-center               outline-green-500 '>
           <BackgroundBeamsSection  />
         
@@ -103,27 +103,14 @@ export default function Home() {
               showBorder={true}
               className="custom-class"
             >
-              In Brief 
+              The Big Picture 
           </GradientText>
       </div>
 
     <section  className=" z-1 flex justify-center items-center h-full w-full mt-3 md:mt-4  outline-cyan-500">
 
 
-      {/* <div className="flex flex-col gap-10 mx-auto w-full md:flex-row px-2 sm:px-6 md:px-10 py-10  outline outline-purple-600">
-          <div className="flex-1 flex items-center text-[3rem]   outline-amber-600">
-              <div className='flex justify-center items-center pb-0 outline-green-500 w-full'>
-                  <TextGenerateEffect 
-                  words={"Software engineering student focused on scalable web systems and meaningful user experiences, turning complex concepts into modern applications and bringing them *into the light*"} />
-              </div>
-          </div>
-          <div className="flex-1 flex justify-center items-center  outline-blue-600">
-            <div className="flex justify-center w-full">
-              <ProfileCardSection/>
-            </div>
-          </div>
-      </div> */}
-      <div className="flex flex-col gap-10 mx-auto w-full md:flex-row px-2 sm:px-6 md:px-10 py-40 outline  outline-purple-600">
+      <div className="flex flex-col gap-1 mx-auto w-full md:flex-row px-2 sm:px-6 md:px-10 pt-6 pb-2 md:py-40   outline-purple-600">
         <AnimatedContainer duration={2} initialY={100}>
           <AccordionSection />
         </AnimatedContainer>
