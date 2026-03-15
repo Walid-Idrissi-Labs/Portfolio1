@@ -10,6 +10,43 @@ type LogoItem = {
   minWidth?: string;
 };
 
+type ClipPathLinksColorClasses = {
+  containerBorder: string;
+  boxBorder: string;
+  boxBackground: string;
+  boxText: string;
+  overlayBackground: string;
+  overlayText: string;
+  logoBase: string;
+  logoOverlay: string;
+};
+
+type ClipPathLinksProps = {
+  colors?: Partial<ClipPathLinksColorClasses>;
+  typography?: Partial<ClipPathLinksTypographyClasses>;
+};
+
+type ClipPathLinksTypographyClasses = {
+  labelBaseWeight: string;
+  labelOverlayWeight: string;
+};
+
+const DEFAULT_COLOR_CLASSES: ClipPathLinksColorClasses = {
+  containerBorder: "border-border/80",
+  boxBorder: "border-border/80",
+  boxBackground: "bg-background",
+  boxText: "text-foreground",
+  overlayBackground: "bg-beige_dark",
+  overlayText: "text-white",
+  logoBase: "",
+  logoOverlay: "brightness-0 invert",
+};
+
+const DEFAULT_TYPOGRAPHY_CLASSES: ClipPathLinksTypographyClasses = {
+  labelBaseWeight: "font-light",
+  labelOverlayWeight: "font-medium",
+};
+
 const techLogoRows: LogoItem[][] = [
   [
     
@@ -37,9 +74,12 @@ const techLogoRows: LogoItem[][] = [
   ],
 ];
 
-export const ClipPathLinks = () => {
+export const ClipPathLinks = ({ colors, typography }: ClipPathLinksProps) => {
+  const colorClasses = { ...DEFAULT_COLOR_CLASSES, ...colors };
+  const typographyClasses = { ...DEFAULT_TYPOGRAPHY_CLASSES, ...typography };
+
   return (
-    <div className="w-full overflow-hidden border border-border/80">
+    <div className={`w-full overflow-hidden border ${colorClasses.containerBorder}`}>
       {techLogoRows.map((row, rowIndex) => (
         <div key={rowIndex} className="grid grid-cols-12">
           {row.map((logo) => (
@@ -51,6 +91,8 @@ export const ClipPathLinks = () => {
               span={logo.span}
               minWidth={logo.minWidth}
               className="h-8 w-auto object-contain sm:h-10 md:h-12"
+              colors={colorClasses}
+              typography={typographyClasses}
             />
           ))}
         </div>
@@ -88,6 +130,8 @@ type LinkBoxProps = {
   span?: string;
   minWidth?: string;
   className?: string;
+  colors: ClipPathLinksColorClasses;
+  typography: ClipPathLinksTypographyClasses;
 };
 
 type LinkBoxContentProps = {
@@ -95,24 +139,37 @@ type LinkBoxContentProps = {
   imgSrc: string;
   imgAlt: string;
   className?: string;
+  textClassName?: string;
+  imageClassName?: string;
+  labelWeightClass?: string;
 };
 
-const LinkBoxContent = ({ title, imgSrc, imgAlt, className }: LinkBoxContentProps) => {
+const LinkBoxContent = ({
+  title,
+  imgSrc,
+  imgAlt,
+  className,
+  textClassName,
+  imageClassName,
+  labelWeightClass,
+}: LinkBoxContentProps) => {
   return (
     <>
-      <span className="pointer-events-none absolute bottom-1.5 left-2 max-w-[calc(100%-1rem)] overflow-hidden text-ellipsis whitespace-nowrap font-ibm text-[8px] font-thin tracking-[0.14em] text-stone-100 uppercase sm:text-[9px] md:text-[10px] lg:text-xs xl:text-sm">
+      <span
+        className={`pointer-events-none absolute bottom-1.5 left-2 max-w-[calc(100%-1rem)] overflow-hidden text-ellipsis whitespace-nowrap font-ibm text-[8px] tracking-[0.14em] uppercase sm:text-[9px] md:text-[10px] lg:text-xs xl:text-sm ${labelWeightClass ?? "font-light"} ${textClassName ?? "text-stone-100"}`}
+      >
         {title}
       </span>
       <img
         src={imgSrc}
         alt={imgAlt}
-        className={className ?? "max-h-10 max-w-[calc(100%-1.5rem)] object-contain sm:max-h-16 md:max-h-20"}
+        className={`${className ?? "max-h-10 max-w-[calc(100%-1.5rem)] object-contain sm:max-h-16 md:max-h-20"} ${imageClassName ?? ""}`}
       />
     </>
   );
 };
 
-const LinkBox = ({ href, imgSrc, imgAlt, span, minWidth, className }: LinkBoxProps) => {
+const LinkBox = ({ href, imgSrc, imgAlt, span, minWidth, className, colors, typography }: LinkBoxProps) => {
   const [scope, animate] = useAnimate();
 
   const getNearestSide = (e: React.MouseEvent<HTMLAnchorElement>): HoverSide => {
@@ -167,16 +224,32 @@ const LinkBox = ({ href, imgSrc, imgAlt, span, minWidth, className }: LinkBoxPro
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       style={{ minWidth: minWidth ?? "8.5rem" }}
-      className={`relative -mr-px -mb-px grid h-20 min-w-0 overflow-hidden place-content-center border-r border-b border-border/80 bg-background pb-5 text-foreground sm:h-28 sm:pb-6 md:h-36 md:pb-7 ${span ?? "col-span-12 sm:col-span-1"}`}
+      className={`relative -mr-px -mb-px grid h-20 min-w-0 overflow-hidden place-content-center border-r border-b pb-5 sm:h-28 sm:pb-6 md:h-36 md:pb-7 ${colors.boxBorder} ${colors.boxBackground} ${colors.boxText} ${span ?? "col-span-12 sm:col-span-1"}`}
     >
-      <LinkBoxContent title={imgAlt} imgSrc={imgSrc} imgAlt={imgAlt} className={className} />
+      <LinkBoxContent
+        title={imgAlt}
+        imgSrc={imgSrc}
+        imgAlt={imgAlt}
+        className={className}
+        textClassName={colors.boxText}
+        imageClassName={colors.logoBase}
+        labelWeightClass={typography.labelBaseWeight}
+      />
 
       <div
         ref={scope}
         style={{ clipPath: BOTTOM_RIGHT_CLIP }}
-        className="absolute inset-0 grid place-content-center bg-[#90877F] pb-5 transition-colors duration-300 sm:pb-6 md:pb-7"
+        className={`absolute inset-0 grid place-content-center pb-5 transition-colors duration-300 sm:pb-6 md:pb-7 ${colors.overlayBackground}`}
       >
-        <LinkBoxContent title={imgAlt} imgSrc={imgSrc} imgAlt={imgAlt} className={className} />
+        <LinkBoxContent
+          title={imgAlt}
+          imgSrc={imgSrc}
+          imgAlt={imgAlt}
+          className={className}
+          textClassName={colors.overlayText}
+          imageClassName={colors.logoOverlay}
+          labelWeightClass={typography.labelOverlayWeight}
+        />
       </div>
     </a>
   );
