@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { FacebookIcon, FrameIcon, GithubIcon, InstagramIcon, LinkedinIcon, YoutubeIcon } from 'lucide-react';
+import { FacebookIcon, FileIcon, FrameIcon, GithubIcon, InstagramIcon, LinkedinIcon, YoutubeIcon } from 'lucide-react';
 
 import {RevealLinks} from "../ui/reveallinks-bit"
 import { AnimatedContainer } from '../utilities/animated-container';
@@ -54,6 +54,7 @@ const footerLinks: FooterSection[] = [
 
 			{ title: 'GitHub', href: 'https://github.com/walid-idrissi-labs', target: '_blank', icon: GithubIcon },
 			{ title: 'LinkedIn', href: 'https://linkedin.com/in/walid-idrissi-labkhati', target: '_blank', icon: LinkedinIcon },
+			{ title: 'Resume', href: 'https://walid-idrissi-resume.s3.us-west-2.amazonaws.com/walid-idrissi-labkhati-resume.pdf', target: '_blank', icon: FileIcon },
 		],
 	},
 ];
