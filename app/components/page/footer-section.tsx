@@ -18,24 +18,7 @@ interface FooterSection {
 }
 
 const footerLinks: FooterSection[] = [
-	// {
-	// 	label: 'Social Links',
-	// 	links: [
-	// 		{ title: 'Features', href: '#features' },
-	// 		{ title: 'Pricing', href: '#pricing' },
-	// 		{ title: 'Testimonials', href: '#testimonials' },
-	// 		{ title: 'Integration', href: '/' },
-	// 	],
-	// },
-	// {
-	// 	label: 'Company',
-	// 	links: [
-	// 		{ title: 'FAQs', href: '/faqs' },
-	// 		{ title: 'About Us', href: '/about' },
-	// 		{ title: 'Privacy Policy', href: '/privacy' },
-	// 		{ title: 'Terms of Services', href: '/terms' },
-	// 	],
-	// },
+
 	{
 		label: 'Navigation Links',
 		links: [
@@ -61,13 +44,13 @@ const footerLinks: FooterSection[] = [
 
 export function Footer() {
 	return (
-		// <footer className="md:rounded-t-6xl relative w-full max-w-6xl mx-auto flex flex-col items-center justify-center rounded-t-4xl border-t bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/8%),transparent)] px-6 py-12 lg:py-16">
-		<footer className="md:rounded-t-6xl relative w-full l mx-auto flex flex-col items-center justify-center rounded-t-4xl border-t bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/8%),transparent)] bg-[#F2E6D8]/5 px-10 py-12 lg:py-16">
+
+		<footer className="md:rounded-t-6xl relative w-full l mx-auto flex flex-col items-center justify-center rounded-t-4xl border-t bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/8%),transparent)] bg-[#74818C]/5 px-10 py-12 lg:py-16">
 			<div className="bg-foreground/20 absolute top-0 right-1/2 left-1/2 h-px w-1/3 -translate-x-1/2 -translate-y-1/2 rounded-full blur" />
 
 			<div className="flex w-full flex-col gap-8 pl-10 xl:flex-row xl:items-start xl:gap-0">
 				{/* Left: copyright + links */}
-				<div className="flex flex-col gap-4 xl:flex-row xl:gap-8 xl:shrink-0">
+				<div className="flex flex-col gap-1 xl:flex-row xl:gap-10 xl:shrink-0">
 					<AnimatedContainer className="space-y-4" initialY={-8}>
 						{/* <FrameIcon className="size-8" /> */}
 						<p className="text-muted-foreground mt-8 text-sm md:mt-0">
@@ -75,12 +58,12 @@ export function Footer() {
 						</p>
 					</AnimatedContainer>
 
-					<div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+					<div className="grid grid-cols-2 gap-16 md:grid-cols-3">
 						{footerLinks.map((section, index) => (
 							<AnimatedContainer key={section.label} delay={0.1 + index * 0.1} initialY={-8}>
 								<div className="mb-10 md:mb-0">
-									<h2 className="text-md">{section.label}</h2>
-									<ul className="text-muted-foreground mt-4 space-y-2 text-sm">
+									<h2 className="text-md font-unbounded font-medium">{section.label}</h2>
+									<ul className="text-muted-foreground mt-4 space-y-2 text-sm font-ibm font-light">
 										{section.links.map((link) => (
 											<li key={link.title}>
 												<a
