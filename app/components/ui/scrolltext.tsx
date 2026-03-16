@@ -38,7 +38,7 @@ export const ScrollText: React.FC<MagicTextProps> = ({ text, lineBreakSpacing = 
   const { scrollYProgress } = useScroll({
     target: container,
  
-    offset: ["start 0.6", "start 0.25"],
+    offset: ["start 0.3", "start 0.01"],
   });
   const lines = text.split("\n");
   const entries: WordEntry[] = [];
