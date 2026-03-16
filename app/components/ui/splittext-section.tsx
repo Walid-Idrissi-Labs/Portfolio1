@@ -9,7 +9,7 @@ import SplitText from './splittext-bit';
 
 export default function SplitTextSection() {
 
-    const [tailwind , setTailwind] = useState("text-center text-[2.5rem] text-beige_bright  md:text-[4.7rem] lg:text-[5.5rem] xl:text-[6.7rem] font-unbounded   opacity-90")
+    const [tailwind , setTailwind] = useState("text-center text-[2.1rem] text-beige_bright  md:text-[4.7rem] lg:text-[5.5rem] xl:text-[6.7rem] font-unbounded   opacity-90")
 
     return (   
         <SplitText
