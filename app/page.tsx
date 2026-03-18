@@ -51,7 +51,7 @@ export default function Home() {
           logos={[walid_1 , walid_2]}
           logoAlt="Walid"
           items={[
-            { label: 'Home', href: '#home' },
+            // { label: 'Home', href: '#home' },
             { label: 'About', href: '#about' },
             { label: 'Projects', href: '#projects' },
             { label: 'Contact', href: '#contact' }

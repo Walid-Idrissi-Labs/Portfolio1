@@ -14,6 +14,8 @@ export async function POST(req : Request){
             )
         };
 
+        
+
 
         //confirmation email to me
         await resend.emails.send({
