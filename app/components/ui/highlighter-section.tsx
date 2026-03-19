@@ -5,7 +5,7 @@ import Link from "next/link";
 import { cn } from "../../lib/utils";
 import { DIcons } from "dicons";
 import { useAnimate } from "framer-motion";
-import { Github } from "lucide-react";
+import { Github  , File} from "lucide-react";
 
 import { Button, buttonVariants } from "../utilities/button";
 
@@ -153,6 +153,21 @@ export function HighlighterSection() {
                         >
                           <span className="flex items-center gap-1">
                             <DIcons.Mail strokeWidth={1} className="h-5 w-5" />
+                          </span>
+                        </Link>
+
+                        <Link
+                          href={"https://walid-idrissi-resume.s3.us-west-2.amazonaws.com/walid-idrissi-labkhati-resume.pdf"}
+                          target="_blank"
+                          className={cn(
+                            buttonVariants({
+                              variant: "outline",
+                              size: "icon",
+                            }),
+                          )}
+                        >
+                          <span className="flex items-center gap-1">
+                            <File strokeWidth={1} className="h-5 w-5" />
                           </span>
                         </Link>
 

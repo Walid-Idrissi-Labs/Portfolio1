@@ -110,7 +110,7 @@ export default function Home() {
     <section  className=" z-1 flex justify-center items-center h-full w-full mt-3 md:mt-4  outline-cyan-500">
 
 
-      <div className="flex flex-col gap-1 mx-auto w-full md:flex-row px-2 sm:px-6 md:px-10 pt-6 pb-2 md:py-40   outline-purple-600">
+      <div className="flex flex-col  mx-auto w-[90vw] md:flex-row px-2 sm:px-6 md:px-10 pt-6 pb-2 md:py-40    outline-purple-600">
         <AnimatedContainer duration={2} initialY={100}>
           <AccordionSection />
         </AnimatedContainer>
@@ -135,7 +135,7 @@ export default function Home() {
 <section id='projects'>
       <div className='min-h-[55vh] pt-4 md:pt-6 w-full px-4 md:px-6 lg:px-8 flex flex-col justify-center items-center   outline-green-500 '>
       
-      <div  className="relative w-[60vw] md:w-full flex justify-center md:justify-end text-center md:text-left text-[2.25rem] sm:text-[3.6rem] md:text-[3.8rem] lg:text-[4.4] xl:text-[4.7rem] font-unbounded z-1   outline-red-600">
+      <div  className="relative w-full md:w-full flex justify-center md:justify-end text-center md:text-left text-[2.25rem] sm:text-[3.6rem] md:text-[3.8rem] lg:text-[4.4] xl:text-[4.7rem] font-unbounded z-1   outline-red-600">
               {/* <h1 className=" ">Overview</h1> */}
               <GradientText
                   colors={
@@ -168,7 +168,7 @@ export default function Home() {
                   
 
 <section id="contact">
-  <div className='min-h-[15vh] pt-30 md:pt-6 w-full px-7 md:px-10 lg:px-15 flex flex-col justify-center items-center outline  outline-green-500 '>
+  <div className='min-h-[15vh] pt-30 md:pt-6 w-full px-7 md:px-10 lg:px-15 flex flex-col justify-center items-center   outline-green-500 '>
         <div  className="relative w-full flex justify-center md:justify-start text-center md:text-left text-[3rem] sm:text-[3.6rem] md:text-[3.8rem] lg:text-[4.4] xl:text-[4.7rem] font-unbounded z-1   outline-red-600">
             {/* <h1 className=" ">Overview</h1> */}
             <GradientText
@@ -186,7 +186,7 @@ export default function Home() {
             </GradientText>
         </div>
 
-        <div className='flex w-[90vw] max-w-4xl flex-col items-center justify-center px-2 py-12 md:my-5 md:h-[40vh] md:px-0 lg:my-15 outline outline-red-500'>
+        <div className='flex w-[90vw] max-w-4xl flex-col items-center justify-center px-2 py-12 md:my-5 md:h-[40vh] md:px-0 lg:my-15  outline-red-500'>
           <HighlighterSection/>
         </div>
   </div>
@@ -257,7 +257,7 @@ export default function Home() {
             </GradientText>
         </div>
         
-        <div className='  mt-10 mb-50 md:my-4 xl:my-10 lg:w[80vw] xl:w-[75vw] lg:my-4 mx-auto outline outline-red-500 '>
+        <div className='  mt-10 mb-50 md:my-4 xl:my-10 lg:w[80vw] xl:w-[75vw] lg:my-4 mx-auto  outline-red-500 '>
               <AnimatedContainer duration={3} delay={0.0}>
                     <ScrollText text={`I'm Walid, a software engineering student at Cadi Ayyad University in Marrakech, currently in the engineering cycle specializing in computer networks and information systems.
                               I work across the stack. On the frontend I focus on clean, functional interfaces. On the backend and infrastructure side, I've spent a lot of time learning Cloud Computing Essentials with AWS, building and deploying real projects using serverless architecture, cloud storage, and infrastructure as code. I enjoy both sides and I've found that working across them makes me a better engineer overall.
