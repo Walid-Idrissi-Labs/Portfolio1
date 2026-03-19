@@ -6,6 +6,7 @@ import tailwindConfig from "../tailwind.config";
 import { Button } from "./components/utilities/button"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
+
 export default function NotFound() {
    return (
 
