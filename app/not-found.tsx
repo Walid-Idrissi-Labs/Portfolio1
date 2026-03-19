@@ -1,8 +1,6 @@
-import { Error404 } from "./components/page/404-not-found"
 import GradientText from "./components/page/gradienttext-bit"
 import AuroraSection from "./components/ui/aurora-section"
 import StaticBackgroundBeamsSection from "./components/ui/staticbackgroundbeams-section"
-import tailwindConfig from "../tailwind.config";
 import { Button } from "./components/utilities/button"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
