@@ -19,7 +19,7 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
       //data-darkreader-proxy-injected="true"
       className={`${unboundedFont.variable} ${ibmFont.variable}  ${latoFont.variable}  `}
       >
-      <body className={` dark:bg-black text-black no-scrollbar` }>
+      <body className="bg-black text-white no-scrollbar">
         <SmoothScroll />
         {children}
       </body>
