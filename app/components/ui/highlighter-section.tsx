@@ -57,7 +57,7 @@ export function HighlighterSection() {
   }, [animate]);
 
   return (
-    <section className="relative mx-auto mb-20 mt-6 max-w-5xl">
+    <section className="relative mx-auto mb-20 mt-6 w-full max-w-5xl">
       <AnimatedContainer duration={1.8} delay={0}>
         <HighlightGroup className="group h-full">
           <div
@@ -128,7 +128,7 @@ export function HighlighterSection() {
                       </div>
                     </div>
 
-                    <div className="-mt-20 flex h-full flex-col justify-center p-2 md:-mt-4 md:ml-10 md:w-100">
+                    <div className="mt-2 flex h-full flex-col justify-center p-2 text-center md:-mt-4 md:ml-10 md:w-100 md:text-left">
                       <div className="flex flex-col items-center">
                         <h3 className="mt-6 pb-1 font-bold">
                           <span className="text-2xl md:text-4xl font-unbounded font-medium ">
