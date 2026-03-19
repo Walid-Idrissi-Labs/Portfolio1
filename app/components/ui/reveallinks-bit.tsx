@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export const RevealLinks = () => {
   return (
-    <section className="grid h-full w-full place-content-center bg-transparent px-2 py-4">
+    <section className="flex h-full w-full flex-col items-center justify-center bg-transparent px-2 py-4 text-center lg:items-end lg:py-0 lg:text-right">
       <FlipLink target="_blank" href="https://github.com/walid-idrissi-labs">GitHub</FlipLink>
       <FlipLink target="_blank" href="https://linkedin.com/in/walid-idrissi-labkhati">Linkedin</FlipLink>
     </section>
@@ -30,9 +30,9 @@ const FlipLink = ({ children, href, target }: FlipLinkProps) => {
       target={target}
       rel={target === "_blank" ? "noopener noreferrer" : undefined}
       // text color is inherited from parent section, so no explicit color here
-      className="relative block overflow-hidden whitespace-nowrap text-3xl font-black uppercase sm:text-6xl md:text-7xl lg:text-8xl font-unbounded"
+      className="relative block overflow-hidden whitespace-nowrap text-[3.35rem] font-black uppercase sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl font-unbounded"
       style={{
-        lineHeight: 0.75,
+        lineHeight: 1,
       }}
     >
       <div >

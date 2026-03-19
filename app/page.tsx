@@ -257,7 +257,7 @@ export default function Home() {
             </GradientText>
         </div>
         
-        <div className='  mt-10 mb-50 md:my-4 xl:my-10 lg:w[80vw] xl:w-[75vw] lg:my-4 mx-auto  outline-red-500 '>
+        <div className='  mt-10 mb-50 md:my-6 lg:mb-30 xl:my-10 lg:w[80vw] xl:w-[75vw] lg:my-4 mx-auto  outline-red-500 '>
               <AnimatedContainer duration={3} delay={0.0}>
                     <ScrollText text={`I'm Walid, a software engineering student at Cadi Ayyad University in Marrakech, currently in the engineering cycle specializing in computer networks and information systems.
                               I work across the stack. On the frontend I focus on clean, functional interfaces. On the backend and infrastructure side, I've spent a lot of time learning Cloud Computing Essentials with AWS, building and deploying real projects using serverless architecture, cloud storage, and infrastructure as code. I enjoy both sides and I've found that working across them makes me a better engineer overall.
@@ -276,7 +276,7 @@ export default function Home() {
 
 
 <footer>
-    <div className="relative flex flex-col justify-end pt-30 mt-60 w-screen  h-[30vh]">
+    <div className="relative flex flex-col justify-end pt-20 mt-60 w-screen  h-auto ">
         <Footer />
 		</div>
 </footer>

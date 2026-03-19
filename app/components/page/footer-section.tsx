@@ -48,17 +48,17 @@ export function Footer() {
 		<footer className="md:rounded-t-6xl relative w-full l mx-auto flex flex-col items-center justify-center rounded-t-4xl border-t bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/8%),transparent)] bg-[#74818C]/5 px-10 py-12 lg:py-16">
 			<div className="bg-foreground/20 absolute top-0 right-1/2 left-1/2 h-px w-1/3 -translate-x-1/2 -translate-y-1/2 rounded-full blur" />
 
-			<div className="flex w-full flex-col gap-8 pl-10 xl:flex-row xl:items-start xl:gap-0">
+			<div className="flex w-full flex-col gap-8 pl-5 lg:flex-row lg:items-start lg:gap-0 ">
 				{/* Left: copyright + links */}
-				<div className="flex flex-col gap-1 xl:flex-row xl:gap-10 xl:shrink-0">
+				<div className="flex flex-col gap-1 lg:flex-row lg:gap-10 lg:shrink-0 ">
 					<AnimatedContainer className="space-y-4" initialY={-8}>
 						{/* <FrameIcon className="size-8" /> */}
-						<p className="text-muted-foreground mt-8 text-sm md:mt-0">
+						<p className="text-muted-foreground mt-8 mb-4 text-sm md:mt-0">
 							© {new Date().getFullYear()} Walid IDRISSI
 						</p>
 					</AnimatedContainer>
 
-					<div className="grid grid-cols-2 gap-16 md:grid-cols-3">
+					<div className="grid grid-cols-1 gap-1 md:gap-10 md:grid-cols-3 ">
 						{footerLinks.map((section, index) => (
 							<AnimatedContainer key={section.label} delay={0.1 + index * 0.1} initialY={-8}>
 								<div className="mb-10 md:mb-0">
@@ -85,7 +85,7 @@ export function Footer() {
 				</div>
 
 				{/* Right: RevealLinks — beside links on xl, below on mobile */}
-				<AnimatedContainer className="min-w-0 overflow-hidden xl:flex-1" initialY={-8}>
+				<AnimatedContainer className="w-full basis-full min-w-0 overflow-visible lg:basis-auto lg:flex-1" initialY={-8}>
 					<RevealLinks />
 				</AnimatedContainer>
 			</div>
